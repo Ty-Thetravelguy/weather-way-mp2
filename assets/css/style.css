@@ -22,6 +22,7 @@ h5 {
     font-family: 'Merriweather Sans', sans-serif;
 }
 
+.activity-question,
 p {
     font-family: 'Open Sans', sans-serif;
 }
@@ -50,4 +51,91 @@ p {
     width: 100%;
     text-align: center;
     background-repeat: no-repeat;
+}
+
+/***************************** Location Section */
+
+.location-textbox {
+    margin: 20px 0 20px 0;
+    padding: 10px 70px;
+    -o-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.btn-style {
+    background-color: #474554;
+    border: none;
+    color: #E0E0E0;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-style:hover {
+    background-color: #ACA7CB;
+    font-weight: 500;
+    transform: scale(1.05);
+}
+
+/***************************** Welcome message and weather section */
+
+.wel-message {
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: 50px;
+    margin-top: 20px;
+    color: #E0E0E0;
+}
+
+.card-img-top {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
+}
+
+/***************************** Google maps section */
+
+#activity-search {
+    padding: 10px 70px;
+    width: 500px;
+    -o-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.activity-question {
+    color: #E0E0E0;
+}
+
+.btn-style-activity {
+    background-color: #474554;
+    border: none;
+    color: #E0E0E0;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 23px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-style-activity:hover {
+    background-color: #ACA7CB;
+    font-weight: 500;
+    transform: scale(1.05);
 }
