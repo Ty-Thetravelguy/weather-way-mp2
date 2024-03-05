@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/***************************** General */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.bg-color {
+    background-color: #0C1330;
+}
+
+h3,
+h5 {
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/***************************** Header */
+
+.bg-img-home {
+    background-image: url('../images/weather-img-v2.jpg');
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50vh;
+}
+
+.heading {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 130px;
+    font-weight: 800;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    background-repeat: no-repeat;
+}
