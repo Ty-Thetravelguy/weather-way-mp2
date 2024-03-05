@@ -17,6 +17,7 @@ body {
     background-color: #0C1330;
 }
 
+h2,
 h3,
 h4,
 h5 {
@@ -90,8 +91,7 @@ p {
 /***************************** Welcome message and weather section */
 
 .wel-message {
-    font-family: 'Open Sans', sans-serif;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     margin-top: 20px;
     color: #E0E0E0;
 }
@@ -145,12 +145,26 @@ p {
     padding-bottom: 20px;
 }
 
+/***************************** Contact Us Page */
+
+.contact-us-form {
+    color: #E0E0E0;
+}
+
+.contact-us-form h2 {
+    font-size: 50px;
+    padding-top: 30px;
+}
+
+.form-group {
+    padding-top: 15px;
+
+}
+
 /***************************** Footer section */
 
-
-
 #footer-details {
-    padding: 30px 0 30px 0;
+    padding-bottom: 20px;
     color: #E0E0E0;
 }
 
@@ -163,6 +177,9 @@ p {
     font-size: 16px;
 }
 
+.btn-footer {
+    margin-left: 5rem;
+}
 
 .social-links {
     padding-right: 30px;
