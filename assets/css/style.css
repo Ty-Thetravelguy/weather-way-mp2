@@ -44,15 +44,25 @@ p {
     font-family: 'Merriweather Sans', sans-serif;
     font-size: 130px;
     font-weight: 800;
+    text-align: center;
     position: absolute;
-    top: 50%;
+    top: 220px;
     left: 50%;
-    transform: translate(-50%, -50%);
     color: black;
     z-index: 2;
     width: 100%;
     text-align: center;
     background-repeat: no-repeat;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
 }
 
 /***************************** Location Section */
@@ -102,6 +112,10 @@ p {
     margin-right: auto;
     width: 200px;
     height: 200px;
+}
+
+#forecast {
+    padding-bottom: 10px;
 }
 
 /***************************** Google maps section */
@@ -226,11 +240,18 @@ p {
 
 @media (max-width: 320px) {
     .bg-img-home {
-        height: 20vh;
+        margin: 0;
+        height: 30vh;
     }
 
     .heading {
-        font-size: 40px;
+        font-size: 35px;
+        top: 120px;
+        text-shadow:
+            -1px -1px 0 #fff,
+            1px -1px 0 #fff,
+            -1px 1px 0 #fff,
+            1px 1px 0 #fff;
     }
 
     .location-textbox {
@@ -256,6 +277,10 @@ p {
         font-size: 13px;
     }
 
+    #forecast {
+        padding-bottom: 20px;
+    }
+
     .card-img-top {
         display: block;
         margin-left: auto;
@@ -276,4 +301,32 @@ p {
         font-size: 13px;
         margin-bottom: 5px;
     }
+
+    .col-sm-12 label {
+        display: grid;
+        justify-content: center;
+        font-size: 13px;
+    }
+
+    #activity-search {
+        padding: 10px 15px;
+        width: 250px;
+        text-align: center;
+        font-size: 10px;
+        margin-top: 5px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-style-activity {
+        padding: 10px 10px;
+        font-size: 13px;
+        margin: 15px;
+    }
+
+
 }
