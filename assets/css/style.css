@@ -221,3 +221,59 @@ p {
     background-color: #c4302b;
     color: #DDD0C8
 }
+
+/***************************** Media Queries */
+
+@media (max-width: 320px) {
+    .bg-img-home {
+        height: 20vh;
+    }
+
+    .heading {
+        font-size: 40px;
+    }
+
+    .location-textbox {
+        margin: 0 0 10px 0;
+        padding: 10px 35px;
+        font-size: 13px;
+    }
+
+    .btn-style {
+        padding: 12px 32px;
+        font-size: 13px;
+        margin: 10px 2px;
+    }
+
+    .weather-btn {
+        text-align: center;
+    }
+
+    .wel-message {
+        padding-bottom: 20px;
+        margin-top: 20px;
+        color: #E0E0E0;
+        font-size: 13px;
+    }
+
+    .card-img-top {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100px;
+        height: 100px;
+    }
+
+    .card h5 {
+        font-size: 16px;
+    }
+
+    .card h3 {
+        font-size: 14px;
+    }
+
+    .card p {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+}

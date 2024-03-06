@@ -25,7 +25,7 @@
     </div>
     <section class="user-input">
         <div class="container-fluid ">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center weather-btn">
                 <div class="col-sm-12 col-md-3">
                     <input id="userLocation" type="text" class="location-textbox text-center"
                         placeholder="Enter Location">
@@ -42,7 +42,7 @@
     <div class="weather-section">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-9 text-center">
+                <div class="col-sm-12 col-md-9 text-center">
                     <p id="welcomeMessage" class="wel-message">Keeping an eye on the weather is not just about planning
                         your day; it's about making smart decisions that can affect your safety, comfort, and
                         productivity. Whether it's choosing the right outfit, deciding whether to bring an umbrella or
@@ -54,13 +54,72 @@
                     </p>
                 </div>
             </div>
-            <div id="forecast" class="row justify-content-center pb-5"></div>
+            <div id="forecast" class="row justify-content-center pb-5">
+                <div class="d-md-none">
+                    <div id="weatherCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <!-- Dynamically generated weather cards go here -->
+                            <!-- Example of a single weather card in the carousel -->
+                            <div class="carousel-item active">
+                                <div class="card" style="background-image: ${gradient};">
+                                    <h5 class="card-title p-2">${dt.toDateString()}</h5>
+                                    <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png"
+                                        class="card-img-top" alt="${day.weather[0].description}" />
+                                    <div class="card-body">
+                                        <h3 class="card-title ">${day.weather[0].main}</h3>
+                                        <p class="card-text">High ${Math.round(day.temp.max)}&deg;C / Low
+                                            ${Math.round(day.temp.min)}&deg;C</p>
+                                        <p class="card-text">High Feels like ${Math.round(day.feels_like.day)}&deg;C</p>
+                                        <p class="card-text">Humidity ${day.humidity}%</p>
+                                        <p class="card-text">UV Index ${day.uvi}</p>
+                                        <p class="card-text">Precipitation ${Math.round(day.pop * 100)}%</p>
+                                        <p class="card-text">Wind ${day.wind_speed}m/s, ${day.wind_deg}&deg;</p>
+                                        <p class="card-text">Sunrise ${sr}</p>
+                                        <p class="card-text">Sunset ${ss}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Additional weather cards as carousel-items -->
+                        </div>
+                        <!-- Carousel controls -->
+                        <a class="carousel-control-prev" href="#weatherCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#weatherCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="d-none d-md-block row">
+                    <div class="col-sm-12 col-md-2">
+                        <div class="card mt-4" style="background-image: ${gradient};">
+                            <h5 class="card-title p-2">${dt.toDateString()}</h5>
+                            <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png"
+                                class="card-img-top" alt="${day.weather[0].description}" />
+                            <div class="card-body">
+                                <h3 class="card-title ">${day.weather[0].main}</h3>
+                                <p class="card-text">High ${Math.round(day.temp.max)}&deg;C / Low
+                                    ${Math.round(day.temp.min)}&deg;C</p>
+                                <p class="card-text">High Feels like ${Math.round(day.feels_like.day)}&deg;C</p>
+                                <p class="card-text">Humidity ${day.humidity}%</p>
+                                <p class="card-text">UV Index ${day.uvi}</p>
+                                <p class="card-text">Precipitation ${Math.round(day.pop * 100)}%</p>
+                                <p class="card-text">Wind ${day.wind_speed}m/s, ${day.wind_deg}&deg;</p>
+                                <p class="card-text">Sunrise ${sr}</p>
+                                <p class="card-text">Sunset ${ss}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <section class="google-maps-section">
         <div class="container-fluid  google-maps-section">
             <div class="row justify-content-center">
-                <div class="col-4">
+                <div class="col-sm-12 col-md-4">
                     <label class="activity-question" for="activity-search">Why not find something to do?</label>
                     <input id="activity-search" type="text" placeholder="eg. Restaurant, Coffee, Museum, or Live Music">
                 </div>
