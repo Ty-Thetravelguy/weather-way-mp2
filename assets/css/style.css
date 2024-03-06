@@ -241,12 +241,12 @@ p {
 @media (max-width: 320px) {
     .bg-img-home {
         margin: 0;
-        height: 30vh;
+        height: 15vh;
     }
 
     .heading {
         font-size: 35px;
-        top: 120px;
+        top: 65px;
         text-shadow:
             -1px -1px 0 #fff,
             1px -1px 0 #fff,
