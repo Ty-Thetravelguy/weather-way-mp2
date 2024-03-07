@@ -29,14 +29,18 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
+.carousel-item .card {
+    background-color: pink;
+}
+
 /***************************** Header */
 
 .bg-img-home {
-    background-image: url('../images/weather-img-v2.jpg');
+    background-image: url('../images/weather-img-v1.jpg');
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     height: 50vh;
 }
 
@@ -51,7 +55,6 @@ p {
     color: black;
     z-index: 2;
     width: 100%;
-    text-align: center;
     background-repeat: no-repeat;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
@@ -84,9 +87,8 @@ p {
     padding: 12px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
-    margin: 20px 2px;
+    margin: 20px 1px;
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s, transform 0.3s;
@@ -122,7 +124,8 @@ p {
 
 #activity-search {
     padding: 10px 70px;
-    width: 500px;
+    width: 400px;
+    text-align: center;
     -o-border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -132,6 +135,8 @@ p {
 
 .activity-question {
     color: #E0E0E0;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .btn-style-activity {
@@ -238,6 +243,74 @@ p {
 
 /***************************** Media Queries */
 
+@media (max-width: 1024px) {
+
+    .bg-img-home {
+        height: 40vh;
+    }
+
+    .heading {
+        font-size: 100px;
+        top: 50%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .bg-img-home {
+        height: 30vh;
+    }
+
+    .heading {
+        font-size: 80px;
+        top: 50%;
+    }
+
+    .card-img-top {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100px;
+        height: 100px;
+    }
+
+    .card h5 {
+        font-size: 16px;
+    }
+
+    .card h3 {
+        font-size: 14px;
+    }
+
+    .card p {
+        font-size: 13px;
+        margin-bottom: 5px;
+    }
+
+    #footer-details h4,
+    #footer-details p {
+        margin-left: 0;
+    }
+
+}
+
+@media (max-width: 425px) {
+
+    .heading {
+        font-size: 50px;
+        top: 50%;
+    }
+
+
+
+    .social-links {
+        padding-right: 0;
+    }
+
+
+}
+
 @media (max-width: 320px) {
     .bg-img-home {
         margin: 0;
@@ -246,16 +319,12 @@ p {
 
     .heading {
         font-size: 35px;
-        top: 65px;
-        text-shadow:
-            -1px -1px 0 #fff,
-            1px -1px 0 #fff,
-            -1px 1px 0 #fff,
-            1px 1px 0 #fff;
+        top: 50%;
+
     }
 
     .location-textbox {
-        margin: 0 0 10px 0;
+        margin: 10px 0 10px 0;
         padding: 10px 35px;
         font-size: 13px;
     }
@@ -279,27 +348,6 @@ p {
 
     #forecast {
         padding-bottom: 20px;
-    }
-
-    .card-img-top {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100px;
-        height: 100px;
-    }
-
-    .card h5 {
-        font-size: 16px;
-    }
-
-    .card h3 {
-        font-size: 14px;
-    }
-
-    .card p {
-        font-size: 13px;
-        margin-bottom: 5px;
     }
 
     .col-sm-12 label {
@@ -328,5 +376,25 @@ p {
         margin: 15px;
     }
 
+    .footer-info {
+        text-align: center;
+    }
+
+    #footer-details h4,
+    #footer-details p {
+        margin-left: 0px;
+    }
+
+    #footer-details h4 {
+        font-size: 16px;
+    }
+
+    #footer-details p {
+        font-size: 12px;
+    }
+
+    .social-links {
+        padding-right: 0;
+    }
 
 }

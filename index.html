@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script async
@@ -14,30 +14,30 @@
 </head>
 
 <body class="bg-color">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <div class="bg-img-home"></div>
+    <div class="container-fluid bg-img-home">
+        <div class="row justify-content-center">
+            <div class="col-12">
                 <h1 class="heading">Weather Way</h1>
             </div>
         </div>
     </div>
-    <section class="user-input">
-        <div class="container-fluid ">
-            <div class="row justify-content-center weather-btn">
-                <div class="col-sm-12 col-md-3">
-                    <input id="userLocation" type="text" class="location-textbox text-center"
-                        placeholder="Enter Location">
-                </div>
-                <div class="col-sm-6 col-md-2">
-                    <button id="getWeather" type="button" class="btn btn-style">Go For Weather</button>
-                </div>
-                <div class="col-sm-6 col-md-2">
-                    <button id="reset" type="button" class="btn btn-style">Start Over</button>
-                </div>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-3 d-flex justify-content-center">
+                <input id="userLocation" type="text" class="location-textbox text-center" placeholder="Enter Location">
             </div>
         </div>
-    </section>
+        <div class="row justify-content-center ">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                <button id="getWeather" type="button" class="btn btn-style">Go For Weather</button>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                <button id="reset" type="button" class="btn btn-style">Start Over</button>
+            </div>
+        </div>
+    </div>
+
     <div class="weather-section">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -54,60 +54,25 @@
                 </div>
             </div>
             <div id="forecast" class="row justify-content-center">
-                <div class="d-md-none">
-                    <div id="weatherCarousel" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <!-- Dynamically generated weather cards go here -->
-                            <!-- Example of a single weather card in the carousel -->
-                            <div class="carousel-item active">
-                                <div class="card" style="background-image: ${gradient};">
-                                    <h5 class="card-title p-2">${dt.toDateString()}</h5>
-                                    <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png"
-                                        class="card-img-top" alt="${day.weather[0].description}" />
-                                    <div class="card-body">
-                                        <h3 class="card-title ">${day.weather[0].main}</h3>
-                                        <p class="card-text">High ${Math.round(day.temp.max)}&deg;C / Low
-                                            ${Math.round(day.temp.min)}&deg;C</p>
-                                        <p class="card-text">High Feels like ${Math.round(day.feels_like.day)}&deg;C</p>
-                                        <p class="card-text">Humidity ${day.humidity}%</p>
-                                        <p class="card-text">UV Index ${day.uvi}</p>
-                                        <p class="card-text">Precipitation ${Math.round(day.pop * 100)}%</p>
-                                        <p class="card-text">Wind ${day.wind_speed}m/s, ${day.wind_deg}&deg;</p>
-                                        <p class="card-text">Sunrise ${sr}</p>
-                                        <p class="card-text">Sunset ${ss}</p>
-                                    </div>
+                <div class="row">
+                    <div class="scrollable-wrapper">
+                        <div class="col-12 col-sm-4 col-md-3 col-lg-3 col-xl-2">
+                            <div class="card mt-4" style="background-image: ${gradient};">
+                                <h5 class="card-title p-2">${dt.toDateString()}</h5>
+                                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png"
+                                    class="card-img-top" alt="${day.weather[0].description}" />
+                                <div class="card-body">
+                                    <h3 class="card-title ">${day.weather[0].main}</h3>
+                                    <p class="card-text">High ${Math.round(day.temp.max)}&deg;C / Low
+                                        ${Math.round(day.temp.min)}&deg;C</p>
+                                    <p class="card-text">High Feels like ${Math.round(day.feels_like.day)}&deg;C</p>
+                                    <p class="card-text">Humidity ${day.humidity}%</p>
+                                    <p class="card-text">UV Index ${day.uvi}</p>
+                                    <p class="card-text">Precipitation ${Math.round(day.pop * 100)}%</p>
+                                    <p class="card-text">Wind ${day.wind_speed}m/s, ${day.wind_deg}&deg;</p>
+                                    <p class="card-text">Sunrise ${sr}</p>
+                                    <p class="card-text">Sunset ${ss}</p>
                                 </div>
-                            </div>
-                            <!-- Additional weather cards as carousel-items -->
-                        </div>
-                        <!-- Carousel controls -->
-                        <a class="carousel-control-prev" href="#weatherCarousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#weatherCarousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="d-none d-md-block row">
-                    <div class="col-sm-12 col-md-2">
-                        <div class="card mt-4" style="background-image: ${gradient};">
-                            <h5 class="card-title p-2">${dt.toDateString()}</h5>
-                            <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png"
-                                class="card-img-top" alt="${day.weather[0].description}" />
-                            <div class="card-body">
-                                <h3 class="card-title ">${day.weather[0].main}</h3>
-                                <p class="card-text">High ${Math.round(day.temp.max)}&deg;C / Low
-                                    ${Math.round(day.temp.min)}&deg;C</p>
-                                <p class="card-text">High Feels like ${Math.round(day.feels_like.day)}&deg;C</p>
-                                <p class="card-text">Humidity ${day.humidity}%</p>
-                                <p class="card-text">UV Index ${day.uvi}</p>
-                                <p class="card-text">Precipitation ${Math.round(day.pop * 100)}%</p>
-                                <p class="card-text">Wind ${day.wind_speed}m/s, ${day.wind_deg}&deg;</p>
-                                <p class="card-text">Sunrise ${sr}</p>
-                                <p class="card-text">Sunset ${ss}</p>
                             </div>
                         </div>
                     </div>
@@ -118,11 +83,13 @@
     <section class="google-maps-section">
         <div class="container-fluid  google-maps-section">
             <div class="row justify-content-center">
-                <div class="col-sm-12 col-md-4">
+                <div class="col-sm-12 col-lg-4 d-flex justify-content-center">
                     <label class="activity-question" for="activity-search">Why not find something to do?</label>
-                    <input id="activity-search" type="text" placeholder="eg. Restaurant, Coffee, Museum, or Live Music">
                 </div>
-                <div class="col-sm-6 col-md-2 btn-container">
+                <div class="col-sm-12 col-lg-12 d-flex text-center justify-content-center">
+                    <input id="activity-search" type="text" placeholder="eg. Restaurant, or Live Music">
+                </div>
+                <div class="col-sm-6 col-lg-12 d-flex justify-content-center btn-container">
                     <button id="getActivity" type="button" class="btn btn-style-activity">Go For Activities</button>
                 </div>
             </div>
@@ -135,17 +102,17 @@
     </section>
     <footer>
         <!--Footer section-->
-        <div class="container-fluid g-0 ">
+        <div class="container-fluid">
             <!--Footer Info-->
-            <div class="row" id="footer-details">
-                <div class="col-12 col-md-6 footer-info">
+            <div class="row justify-content-center" id="footer-details">
+                <div class="col-sm-12 col-md-6 text-sm-center text-lg-start footer-info">
                     <h4>Weather Way</h4>
                     <p>We are a completely virtual company but if you need contact us, you can do so via our socials or
                         on our <a href="contact.html">contact page</a>.</p>
                 </div>
                 <!--Social icons-->
                 <div
-                    class="col-12 col-md-6 d-flex justify-content-xs-center justify-content-sm-center justify-content-md-end align-items-center pt-4 social-icons">
+                    class="col-12 col-md-6 d-flex justify-content-center justify-content-xs-center justify-content-sm-center justify-content-md-end align-items-center pt-4 social-icons">
                     <ul class="list-inline social-links">
                         <li class="list-inline-item">
                             <a href="https://www.facebook.com/" target="_blank">
@@ -159,7 +126,6 @@
                                 <span class="sr-only">Instagram</span>
                             </a>
                         </li>
-
                         <li class="list-inline-item">
                             <a href="https://www.linkedin.com/feed/" target="_blank">
                                 <i class="fa-brands fa-linkedin linkedin-color" aria-hidden="true"></i>
