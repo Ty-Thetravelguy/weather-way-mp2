@@ -56,11 +56,11 @@ p {
     z-index: 2;
     width: 100%;
     background-repeat: no-repeat;
-    transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     text-shadow:
         -1px -1px 0 #fff,
         1px -1px 0 #fff,
@@ -100,6 +100,7 @@ p {
     transform: scale(1.05);
 }
 
+
 /***************************** Welcome message and weather section */
 
 .wel-message {
@@ -114,6 +115,10 @@ p {
     margin-right: auto;
     width: 200px;
     height: 200px;
+}
+
+.card-body {
+    color: black;
 }
 
 #forecast {
@@ -162,6 +167,7 @@ p {
 
 .google-maps-section {
     padding-bottom: 20px;
+    display: none;
 }
 
 /***************************** Contact Us Page */

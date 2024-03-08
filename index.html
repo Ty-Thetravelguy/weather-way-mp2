@@ -53,34 +53,14 @@
                     </p>
                 </div>
             </div>
-            <div id="forecast" class="row justify-content-center">
-                <div class="row">
-                    <div class="scrollable-wrapper">
-                        <div class="col-12 col-sm-4 col-md-3 col-lg-2">
-                            <div class="card mt-4" style="background-image: ${gradient};">
-                                <h5 class="card-title p-2">${dt.toDateString()}</h5>
-                                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png"
-                                    class="card-img-top" alt="${day.weather[0].description}" />
-                                <div class="card-body">
-                                    <h3 class="card-title ">${day.weather[0].main}</h3>
-                                    <p class="card-text">High ${Math.round(day.temp.max)}&deg;C / Low
-                                        ${Math.round(day.temp.min)}&deg;C</p>
-                                    <p class="card-text">High Feels like ${Math.round(day.feels_like.day)}&deg;C</p>
-                                    <p class="card-text">Humidity ${day.humidity}%</p>
-                                    <p class="card-text">UV Index ${day.uvi}</p>
-                                    <p class="card-text">Precipitation ${Math.round(day.pop * 100)}%</p>
-                                    <p class="card-text">Wind ${day.wind_speed}m/s, ${day.wind_deg}&deg;</p>
-                                    <p class="card-text">Sunrise ${sr}</p>
-                                    <p class="card-text">Sunset ${ss}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="scrollable-wrapper">
+                <div id="forecast" class="row justify-content-center">
+
                 </div>
             </div>
         </div>
     </div>
-    <section class="google-maps-section">
+    <section>
         <div class="container-fluid  google-maps-section">
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-lg-4 d-flex justify-content-center">
