@@ -170,6 +170,10 @@ p {
     display: none;
 }
 
+#map {
+    height: 400px;
+}
+
 /***************************** Contact Us Page */
 
 .contact-us-form {

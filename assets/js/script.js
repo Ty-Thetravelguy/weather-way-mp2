@@ -1,12 +1,13 @@
 let latVar, longVar;
-let googleMapsSection; // Declare a variable to store the reference
-
+let googleMapsSection;
+var service;
+var infowindow;
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    initAutocomplete(); // Call your function that initializes the Autocomplete
+    initAutocomplete();
     var getWeatherButton = document.getElementById('getWeather');
-    if (getWeatherButton) { // Ensure the element exists
+    if (getWeatherButton) {
         getWeatherButton.addEventListener('click', () => {
             getLocation();
             showActivitySection();
@@ -14,19 +15,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
 function initAutocomplete() {
     // Autocomplete for user location
     const userLocationInput = document.getElementById('userLocation');
     const userLocationAutocomplete = new google.maps.places.Autocomplete(userLocationInput, {
-        types: ['(cities)'], // Restricts predictions to city names.
+        types: ['(cities)'],
     });
 
     userLocationAutocomplete.addListener('place_changed', () => {
         const place = userLocationAutocomplete.getPlace();
         latVar = place.geometry.location.lat();
         longVar = place.geometry.location.lng();
-        console.log('Latitude:', latVar, 'Longitude:', longVar); // Logging the values, you can remove this line.
+        console.log('Latitude:', latVar, 'Longitude:', longVar);
     });
 
     // Activity search functionality
@@ -37,18 +37,16 @@ function initAutocomplete() {
         const userInput = activitySearchInput.value;
         console.log('User input:', userInput);
 
-        // Use the user's input and location to search for relevant places
         const request = {
             location: new google.maps.LatLng(latVar, longVar),
-            radius: 5000, // Search radius in meters
-            query: userInput, // Use the user's input as the search query
+            radius: 5000,
+            query: userInput,
         };
 
         const service = new google.maps.places.PlacesService(document.createElement('div'));
         service.textSearch(request, (results, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
                 console.log('Search results:', results);
-                // Process the results and display them to the user
                 displaySearchResults(results);
             }
         });
@@ -56,17 +54,13 @@ function initAutocomplete() {
 
     // Reset button functionality
     document.getElementById('reset').addEventListener('click', () => {
-        document.getElementById('userLocation').value = ''; // Resets user location input
-        document.getElementById('activity-search').value = ''; // Resets activity search input
-        // Optionally reset the latVar and longVar variables
+        document.getElementById('userLocation').value = '';
+        document.getElementById('activity-search').value = '';
         latVar = undefined;
         longVar = undefined;
         console.log('Reset clicked, inputs cleared, and variables reset.');
     });
 }
-
-// Ensure the initAutocomplete function is called when the Google Maps script is loaded and ready.
-google.maps.event.addDomListener(window, 'load', initAutocomplete);
 
 /* This function gets the location's longitude and latitude coordinates and then calls the fetchWeather function.
 **/
@@ -164,3 +158,34 @@ function getWeatherGradient(id) {
     return `linear-gradient(to right, ${colors[0]}, ${colors[1]}, ${colors[2]})`;
 }
 
+function displaySearchResults(results) {
+    const mapOptions = {
+        center: new google.maps.LatLng(latVar, longVar),
+        zoom: 14
+    };
+
+    const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    results.forEach(result => {
+        const marker = new google.maps.Marker({
+            map: map,
+            position: result.geometry.location,
+            title: result.name
+        });
+
+        const infowindow = new google.maps.InfoWindow({
+            content: `
+                <h3>${result.name}</h3>
+                <p>${result.formatted_address}</p>
+                ${result.website ? `<p>Website: <a href="${result.website}" target="_blank">${result.website}</a></p>` : ''}
+                ${result.formatted_phone_number ? `<p>Phone: ${result.formatted_phone_number}</p>` : ''}
+            `
+        });
+
+        marker.addListener('click', () => {
+            setTimeout(() => {
+                infowindow.open(map, marker);
+            }, 100);
+        });
+    });
+}
