@@ -1,108 +1,105 @@
 let latVar, longVar;
 let googleMapsSection;
-var service;
-var infowindow;
+let autocompleteTimer;
+let service;
+let infowindow;
 
 
+// Wait until the HTML document is fully loaded before running the script.
 document.addEventListener('DOMContentLoaded', function () {
-    initAutocomplete();
-    var getWeatherButton = document.getElementById('getWeather');
+    initAutocomplete(); // Initialise the Google Places Autocomplete functionality.
+    const getWeatherButton = document.getElementById('getWeather');
     if (getWeatherButton) {
         getWeatherButton.addEventListener('click', () => {
-            getLocation();
-            showActivitySection();
+            const userLocationInput = document.getElementById('userLocation').value;
+            if (userLocationInput.trim() === '') { // Check if the input is empty
+                alert('Please enter a city for which you would like to see the weather.');
+            } else {
+                // If there is an input, proceed with these functions
+                fetchWeather(5);
+                showActivitySection();
+            }
         });
     }
 });
 
+/**
+ * This function does initialises Google Places Autocomplete for a user location input field, allowing users to select a city. Upon selection, it stores the city's geographical coordinates. It also sets up a button event listener to perform a custom text search based on user input for activities within a 5 km radius of the selected city, displaying these search results using another function.
+ */
 function initAutocomplete() {
     // Autocomplete for user location
     const userLocationInput = document.getElementById('userLocation');
     const userLocationAutocomplete = new google.maps.places.Autocomplete(userLocationInput, {
         types: ['(cities)'],
     });
-
     userLocationAutocomplete.addListener('place_changed', () => {
         const place = userLocationAutocomplete.getPlace();
         latVar = place.geometry.location.lat();
         longVar = place.geometry.location.lng();
-        console.log('Latitude:', latVar, 'Longitude:', longVar);
     });
 
     // Activity search functionality
     const activitySearchInput = document.getElementById('activity-search');
     const activitySearchButton = document.getElementById('getActivity');
-
     activitySearchButton.addEventListener('click', () => {
         const userInput = activitySearchInput.value;
-        console.log('User input:', userInput);
-
         const request = {
             location: new google.maps.LatLng(latVar, longVar),
             radius: 5000,
             query: userInput,
         };
-
         const service = new google.maps.places.PlacesService(document.createElement('div'));
         service.textSearch(request, (results, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
-                console.log('Search results:', results);
                 displaySearchResults(results);
             }
         });
     });
-
-    // Reset button functionality
-    document.getElementById('reset').addEventListener('click', () => {
-        document.getElementById('userLocation').value = '';
-        document.getElementById('activity-search').value = '';
-        latVar = undefined;
-        longVar = undefined;
-        console.log('Reset clicked, inputs cleared, and variables reset.');
-    });
 }
 
-/* This function gets the location's longitude and latitude coordinates and then calls the fetchWeather function.
-**/
-function getLocation() {
-    let lat = latVar;
-    let lon = longVar;
-    fetchWeather(5); // Pass the desired number of days
-}
-
-/* This funtion clears the welcome messages and ensures that there is no gap after its been removed.
-**/
+/**
+ * This funtion clears the welcome messages and ensures that there is no gap after its been removed.
+ * @param {*} content contains html to inject into page
+ */
 function updateWelcomeMessage(content) {
-    let welcomeMsgElement = document.getElementById('welcomeMessage');
+    const welcomeMsgElement = document.getElementById('welcomeMessage');
     welcomeMsgElement.innerHTML = content;
     welcomeMsgElement.style.display = !content.trim() ? 'none' : '';
 }
 
-/* This funtion makes the activity input section visiable.
-**/
+/**
+ * This funtion makes the activity input section visable.
+ */
 function showActivitySection() {
-    var googleMapsSection = document.querySelector('.google-maps-section');
+    const googleMapsSection = document.querySelector('.google-maps-section');
     if (googleMapsSection) {
         googleMapsSection.style.display = 'block'; // Show the section
     }
 }
 
-/* This function will take the longitude and latitude cordinates from the google API and call the weather data from the OpenWeatherMap API.
-**/
+/**
+ * This function will take the longitude and latitude cordinates from the google API and call the weather data from the OpenWeatherMap API.
+ * @param {int} dayLimit number of days defaults to 5 if none entered.
+ */
 function fetchWeather(dayLimit = 5) {
     let url = `https://pro.openweathermap.org/data/2.5/onecall?lat=${latVar}&lon=${longVar}&appid=${'abc17e60a5096905541565302be6c107'}&units=${'metric'}&lang=${'en'}`;
-
+    // using fetch then to ensure it fetches first before moving on
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             displayForecast(data, dayLimit);
         })
-        .catch(error => console.error("Error fetching weather:", error));
+        .catch(error => {
+            console.error("Error fetching weather:", error);
+            alert("An error occurred while fetching the weather data. If the error persists, please contact us."); // Display an alert to the user
+        });
 }
 
-/* This function create the HTML with the data from the OpenWeatherMap API
-**/
+/**
+ * This function create the HTML with the data from the OpenWeatherMap API
+ * @param {*} data 
+ * @param {*} dayLimit 
+ */
 function displayForecast(data, dayLimit) {
     updateWelcomeMessage('');
     document.getElementById('forecast').innerHTML = data.daily
@@ -134,6 +131,12 @@ function displayForecast(data, dayLimit) {
         }).join(' ');
 }
 
+
+/**
+ * This function changes the color of the card depending on the weather condition.
+ * @param {*} id The weather condition ID according to the OpenWeatherMap weather conditions. 
+ * @returns A CSS linear-gradient string representing the gradient to be applied based on the weather condition.
+ */
 function getWeatherGradient(id) {
     let colors = ['#FFFFFF', '#FFFFFF', '#FFFFFF']; // Default white gradient
     if (id >= 200 && id <= 232) {
@@ -153,35 +156,33 @@ function getWeatherGradient(id) {
     } else if (id >= 801 && id <= 804) {
         colors = ['#FF9C12', '#FFA257', '#FFAE8B']; // Cloudy
     }
-
     // Apply the gradient to the card
     return `linear-gradient(to right, ${colors[0]}, ${colors[1]}, ${colors[2]})`;
 }
 
+/**
+ * This function displays a Google Map centred on specified coordinates, adorned with markers representing places matching the user's search query. Each marker, upon interaction, reveals an InfoWindow containing details of the corresponding place.
+ * @param {*} results An array of objects, each representing a place returned by the search use to diplay. 
+ */
 function displaySearchResults(results) {
     const mapOptions = {
         center: new google.maps.LatLng(latVar, longVar),
         zoom: 14
     };
-
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
     results.forEach(result => {
         const marker = new google.maps.Marker({
             map: map,
             position: result.geometry.location,
             title: result.name
         });
-
         const infowindow = new google.maps.InfoWindow({
             content: `
                 <h3>${result.name}</h3>
                 <p>${result.formatted_address}</p>
-                ${result.website ? `<p>Website: <a href="${result.website}" target="_blank">${result.website}</a></p>` : ''}
-                ${result.formatted_phone_number ? `<p>Phone: ${result.formatted_phone_number}</p>` : ''}
+                ${result.url ? `<p>Google Maps: <a href="${result.url}" target="_blank">View on Map</a></p>` : ''}
             `
         });
-
         marker.addListener('click', () => {
             setTimeout(() => {
                 infowindow.open(map, marker);
@@ -189,3 +190,34 @@ function displaySearchResults(results) {
         });
     });
 }
+
+
+// Reset button functionality
+document.getElementById('reset').addEventListener('click', () => {
+
+    // Clear input fields
+    document.getElementById('userLocation').value = '';
+    document.getElementById('activity-search').value = '';
+    latVar = undefined;
+    longVar = undefined;
+
+    // Clear the forecast display
+    document.getElementById('forecast').innerHTML = '';
+
+    // Hide the google-maps-section
+    if (document.getElementsByClassName('google-maps-section').length > 0) {
+        document.getElementsByClassName('google-maps-section')[0].style.display = 'none';
+    }
+
+    // Ensure the welcome message is visible
+    const welcomeMsgElement = document.getElementById('welcomeMessage');
+    updateWelcomeMessage(`Keeping an eye on the weather is not just about planning
+    your day; it's about making smart decisions that can affect your safety, comfort, and
+    productivity. Whether it's choosing the right outfit, deciding whether to bring an umbrella or
+    determining if a journey is safe, accurate weather predictions can make all the difference.
+    That's where our weather app comes in. It provides real-time updates and forecasts to help you
+    stay one step ahead of the weather. From sudden downpours to unexpected heatwaves, our app
+    ensures you're never caught off guard. With our user-friendly interface and precise data,
+    planning your day, week, or even your next adventure has never been easier or more reliable.`);
+});
+

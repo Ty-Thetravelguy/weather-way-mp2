@@ -266,6 +266,13 @@ p {
 
 }
 
+@media (max-width: 916px) {
+    .btn-style {
+        padding: 10px 24px;
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 768px) {
 
     .bg-img-home {
@@ -303,6 +310,17 @@ p {
         margin-left: 0;
     }
 
+    #welcomeMessage {
+        font-size: 13px;
+    }
+
+    #footer-details h4 {
+        font-size: 16px;
+    }
+
+    #footer-details p {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 425px) {
@@ -337,12 +355,6 @@ p {
         margin: 10px 0 10px 0;
         padding: 10px 35px;
         font-size: 13px;
-    }
-
-    .btn-style {
-        padding: 12px 32px;
-        font-size: 13px;
-        margin: 10px 2px;
     }
 
     .weather-btn {
@@ -395,13 +407,7 @@ p {
         margin-left: 0px;
     }
 
-    #footer-details h4 {
-        font-size: 16px;
-    }
 
-    #footer-details p {
-        font-size: 12px;
-    }
 
     .social-links {
         padding-right: 0;
