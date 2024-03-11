@@ -26,3 +26,8 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
             alert('Error, your message was not sent. Please try again!'); // Notifies the user of the failure to send the message.
         });
 });
+
+// Clears the contact us form. 
+Document.getElementById('reset-contact-form').addEventListener('clicked', function () {
+    document.getElementById('contact-form').reset();
+});
