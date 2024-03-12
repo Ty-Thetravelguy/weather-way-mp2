@@ -28,4 +28,48 @@ Weather Way flips the script on traditional activity planning by placing the wea
 
 ## Design Process
 
-### Process
+In designing the weather app, the primary goal was to create an interface that was not only functional but also visually engaging and intuitive for users. The decision to use specific color palettes for both the website and the weather cards was driven by the desire to enhance user experience and convey information through color effectively.
+
+The website itself employs a sophisticated and modern color scheme with shades of dark blue (#0C1330), muted purple (#474554), soft lavender (#ACA7CB), and light grey (#E0E0E0). This palette was chosen to create a calming and professional backdrop that allows the vibrant weather cards to stand out, ensuring users can quickly gauge the weather outlook without being overwhelmed by the interface's base colors.
+
+For the weather cards, the use of gradients serves a dual purpose: aesthetically pleasing transitions and a visual representation of weather conditions. The gradients ranging from sunny, cloudy, snowy, rainy, foggy, to stormy weather conditions utilize specific color schemes to evoke the essence of each weather type, making the app not just visually appealing but also highly informative at a glance.
+
+The integration of the Google Places API with autocomplete functionality significantly enhances the user experience by ensuring the accuracy of city entries. This feature, coupled with the app's ability to fetch international weather data from the OpenWeather API using latitude and longitude coordinates, allows for a globally comprehensive weather service. Users can search for activities based on the weather, making the app a versatile tool for daily planning.
+
+Additionally, a "Contact Us" form was implemented, leveraging the EmailJS API, to allow users to send emails directly through the app. This feature fosters a direct line of communication between the user and the app developers, enhancing support and user engagement.
+
+In summary, the design process of the weather app was deeply influenced by the desire to create a user-centric interface. The thoughtful selection of color schemes, the integration of essential APIs for accuracy and global weather data, and the inclusion of a contact mechanism, all contribute to a comprehensive and intuitive user experience. The app not only serves as a tool for checking the weather but also as a guide for planning activities, reflecting a seamless blend of aesthetic appeal and functionality.
+
+### Colors
+
+#### Website Colors
+
+Colors - #0C1330, #474554, #ACA7CB, #E0E0E0
+
+![Website colors](assets/images-for-readme/webpage-colors-img.png)
+
+#### Weather Cards
+
+Sunny - #00CAF2, #00A1C7, #00799E
+
+![Weather Card Sunny](assets/images-for-readme/sunny-img.png)
+
+Cloudy - #FF9C12, #FFA257, #FFAE8B
+
+![Weather Card Cloudy](assets/images-for-readme/cloudy-img.png)
+
+Snowy - #8ED2EB, #61A6BE, #337C92
+
+![Weather Card Snowy](assets/images-for-readme/snowy-img.png)
+
+Rainy - #00457C, #3A67A2, #638AC9
+
+![Weather Card Rainy](assets/images-for-readme/rainy-img.png)
+
+Foggy - #11AC8D, #61C38B, #99D98A
+
+![Weather Card Foggy](assets/images-for-readme/foggy-img.png)
+
+Stormy - #6E6590, #8A80AD, #A89DCB
+
+![Weather Card Foggy](assets/images-for-readme/stormy-img.png)
