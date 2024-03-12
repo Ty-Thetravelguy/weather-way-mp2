@@ -5,7 +5,7 @@ let service;
 let infowindow;
 
 
-// Wait until the HTML document is fully loaded before running the script.
+// Waits until the HTML document is fully loaded before running the script.
 document.addEventListener('DOMContentLoaded', function () {
     initAutocomplete(); // Initialise the Google Places Autocomplete functionality.
     const getWeatherButton = document.getElementById('getWeather');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 // If there is an input, proceed with these functions
                 fetchWeather(5);
-                showActivitySection();
+                showActivityBtn();
             }
         });
     }
@@ -42,6 +42,9 @@ function initAutocomplete() {
     const activitySearchInput = document.getElementById('activity-search');
     const activitySearchButton = document.getElementById('getActivity');
     activitySearchButton.addEventListener('click', () => {
+
+        showActivitySection();
+
         const userInput = activitySearchInput.value;
         const request = {
             location: new google.maps.LatLng(latVar, longVar),
@@ -70,12 +73,24 @@ function updateWelcomeMessage(content) {
 /**
  * This funtion makes the activity input section visable.
  */
-function showActivitySection() {
-    const googleMapsSection = document.querySelector('.google-maps-section');
+function showActivityBtn() {
+    const googleMapsSection = document.querySelector('.activity-btn');
     if (googleMapsSection) {
         googleMapsSection.style.display = 'block'; // Show the section
     }
 }
+
+/**
+ * This funtion makes the google maps visable.
+ */
+function showActivitySection() {
+
+    const googleMapsSection = document.querySelector('.google-map-display');
+    if (googleMapsSection) {
+        googleMapsSection.style.display = 'block'; // Show the section
+    }
+}
+
 
 /**
  * This function will take the longitude and latitude cordinates from the google API and call the weather data from the OpenWeatherMap API.
@@ -91,7 +106,7 @@ function fetchWeather(dayLimit = 5) {
         })
         .catch(error => {
             console.error("Error fetching weather:", error);
-            alert("An error occurred while fetching the weather data. If the error persists, please contact us."); // Display an alert to the user
+            alert("An error occurred while fetching the weather data. Please enter a valid city name. If the error persists, please contact us."); // Display an alert to the user
         });
 }
 
@@ -171,6 +186,7 @@ function displaySearchResults(results) {
     };
     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
     results.forEach(result => {
+
         const marker = new google.maps.Marker({
             map: map,
             position: result.geometry.location,
@@ -180,7 +196,7 @@ function displaySearchResults(results) {
             content: `
                 <h3>${result.name}</h3>
                 <p>${result.formatted_address}</p>
-                ${result.url ? `<p>Google Maps: <a href="${result.url}" target="_blank">View on Map</a></p>` : ''}
+                <p>Rating: ${result.rating}</p>
             `
         });
         marker.addListener('click', () => {
@@ -204,9 +220,14 @@ document.getElementById('reset').addEventListener('click', () => {
     // Clear the forecast display
     document.getElementById('forecast').innerHTML = '';
 
-    // Hide the google-maps-section
-    if (document.getElementsByClassName('google-maps-section').length > 0) {
-        document.getElementsByClassName('google-maps-section')[0].style.display = 'none';
+    // Hide the activity search buttons
+    if (document.getElementsByClassName('activity-btn').length > 0) {
+        document.getElementsByClassName('activity-btn')[0].style.display = 'none';
+    }
+
+    // Hide the google maps section
+    if (document.getElementsByClassName('google-map-display').length > 0) {
+        document.getElementsByClassName('google-map-display')[0].style.display = 'none';
     }
 
     // Ensure the welcome message is visible

@@ -50,7 +50,7 @@ p {
     font-weight: 800;
     text-align: center;
     position: absolute;
-    top: 220px;
+    top: 50%;
     left: 50%;
     color: black;
     z-index: 2;
@@ -165,7 +165,12 @@ p {
     transform: scale(1.05);
 }
 
-.google-maps-section {
+.activity-btn {
+    padding-bottom: 20px;
+    display: none;
+}
+
+.google-map-display {
     padding-bottom: 20px;
     display: none;
 }
@@ -276,6 +281,10 @@ p {
 @media (max-width: 768px) {
 
     .bg-img-home {
+        background-image: url('../images/weather-img-768px.jpg');
+    }
+
+    .bg-img-home {
         height: 30vh;
     }
 
@@ -325,24 +334,25 @@ p {
 
 @media (max-width: 425px) {
 
+    .bg-img-home {
+        background-image: url('../images/weather-img-425px.jpg');
+        height: 30vh;
+    }
+
     .heading {
         font-size: 50px;
         top: 50%;
     }
 
-
-
     .social-links {
         padding-right: 0;
     }
-
-
 }
 
 @media (max-width: 320px) {
     .bg-img-home {
         margin: 0;
-        height: 15vh;
+        height: 20vh;
     }
 
     .heading {
