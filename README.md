@@ -126,4 +126,14 @@ Lastly, the presentation of weather data in my app was initially less polished t
 
 Throughout the development of my app, I relied heavily on console.log for debugging and experimentation. This process has dramatically improved my understanding of JavaScript. ChatGPT has been instrumental in guiding me through various challenges and enhancing my problem-solving skills.
 
+During testing, while running the JS through JSlint, in my fectchWeather function, it suggested to include "responce" in parenthese (.then((response) => response.json())).
+
 Although not a bug, I initially wanted to have 3 buttoms, one which show the weather for today, then another for a 3 day forcast, and another for a 5 day forcast. I did manage to get this to work but decided to remove it because it didn't make sence to have these three options. Seeing the weather for 5 days gives you everything you need.
+
+## Testing
+
+I ran the website through [W3C Markup Validation Service](https://validator.w3.org/). No errors were found.
+
+I ran the website through [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/). There are errors from Bootstrap, and warnings about the transform used in my css.
+
+I also tested my js through [JSLint](https://www.jslint.com/). I asked Chat GPT to run thorugh the warnings. I learnt that JSlnt doesn't like it when lines of code has more than 80 characters. I have my VS code set to 120 which i'm happy with. I also learnt that JSLint doesn't like single quote, but i've chosen to leave my JS with single quotes and that it doesn't seem to like the arrow function method. It seems it prefer the reidutional way for more complex function, but i don't think my funtion is very complex. There were a few spacing warning which I corrected and a peice of code which advised I should inclose in parentheses which I did.
