@@ -75,3 +75,53 @@ Foggy - #11AC8D, #61C38B, #99D98A
 Stormy - #6E6590, #8A80AD, #A89DCB
 
 ![Weather Card Foggy](assets/images-for-readme/stormy-img.png)
+
+### Wireframe
+
+![Wireframe](assets/images-for-readme/Weather-Way-App-Wireframe.png)
+
+## Technology Used
+
+I created my Wireframe using Balsamiq Wireframes, which was downloaded onto my computer.
+
+HTML5 / CSS3 / JavaScript
+
+[Bootstrap V5](https://getbootstrap.com/) for responsive design.
+
+[W3Schools](https://my-learning.w3schools.com/) to look up syntax and when I was trying to figure out how to create some JavaScript.
+
+[Google Fonts](https://fonts.google.com/) for my fonts.
+
+[Font Awesome](https://fontawesome.com/) for my icons on my footer.
+
+[My Color Space](https://mycolor.space/) to look for colors which worked together.
+
+[Coolors](https://coolors.co/) to create my color palettes.
+
+[iStockPhotos](https://www.istockphoto.com/) where I found and paid for the image.
+
+[Google Console](https://developers.google.com/) to learn about their APIs, create my key and restict the key.
+
+[Open Weather Map](https://openweathermap.org/) the API I used to get the weather data.
+
+[Email JS](https://www.emailjs.com/) for the contact form to set up the emailing servcie.
+
+[Favicon.io](https://favicon.io/) to create my Favicon.
+
+[Techsini](https://techsini.com/multi-mockup/index.php) to create my mock up.
+
+## Bugs
+
+Encountering a spacing issue after the paragraph with the ID welcomeMessage, I initially toggled visibility using visibility = hidden/visible to hide and show the paragraph. I realized that the containing div wasn't disappearing, but I wasn't sure how to resolve this. After some research and consulting with ChatGPT, I learned to create a function that checks if the content is truthy after trimming, as an empty string is considered falsy. Following this advice, I switched from using visibility = hidden/visible to style.display = none for showing and hiding content.
+
+While integrating the Google Places Autocomplete API, I initially struggled to get it working. After delving into the Google Console, I discovered I was using the incorrect script URL. Once corrected, I noticed the API returned more information than I needed; I only wanted city names, but it provided full addresses. Further investigation led me to specify the types object as cities to narrow down the results to my requirements.
+
+I faced another challenge when displaying the Google Map. Despite assigning the map div an ID of map, my CSS incorrectly used the . prefix for classes instead of # for IDs, preventing the JavaScript code from finding the map ID. This frustrating oversight was eventually clarified through student tutoring and reminded me of the importance of using IDs for unique elements and classes for multiple elements that share the same styling or functionality.
+
+Working with the Open Weather Map API presented a significant challenge, as I couldn't get it to function correctly. Though I believed my URL was accurate, it wasn't until I signed up for a student developer account and received a different URL that I began receiving data. This breakthrough was a relief.
+
+Lastly, the presentation of weather data in my app was initially less polished than I preferred, with temperatures and precipitation levels displaying too many decimal places. Recalling the round() method from my notes and applying it greatly improved the data's appearance.
+
+Throughout the development of my app, I relied heavily on console.log for debugging and experimentation. This process has dramatically improved my understanding of JavaScript. ChatGPT has been instrumental in guiding me through various challenges and enhancing my problem-solving skills.
+
+Although not a bug, I initially wanted to have 3 buttoms, one which show the weather for today, then another for a 3 day forcast, and another for a 5 day forcast. I did manage to get this to work but decided to remove it because it didn't make sence to have these three options. Seeing the weather for 5 days gives you everything you need.
