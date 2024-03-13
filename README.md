@@ -6,6 +6,8 @@ Weather Way flips the script on traditional activity planning by placing the wea
 
 Click [Here](https://ty-thetravelguy.github.io/weather-today-mp2/) to view the webpage.
 
+![Mockup](assets/images-for-readme/weather-way-mockup.png)
+
 ## Business Needs
 
 1. Attract and Retain Users: Establish a platform that becomes the go-to resource for weather-related planning, thereby increasing user engagement and loyalty.

@@ -1,13 +1,8 @@
 let latVar, longVar;
-let googleMapsSection;
-let autocompleteTimer;
-let service;
-let infowindow;
-
 
 // Waits until the HTML document is fully loaded before running the script.
 document.addEventListener('DOMContentLoaded', function () {
-    initAutocomplete(); // Initialise the Google Places Autocomplete functionality.
+    initAutocomplete(); // Initialise the Google Places Autocomplete functionality
     const getWeatherButton = document.getElementById('getWeather');
     if (getWeatherButton) {
         getWeatherButton.addEventListener('click', () => {
@@ -48,8 +43,8 @@ function initAutocomplete() {
         const userInput = activitySearchInput.value;
         const request = {
             location: new google.maps.LatLng(latVar, longVar),
-            radius: 5000,
             query: userInput,
+            radius: 5000,
         };
         const service = new google.maps.places.PlacesService(document.createElement('div'));
         service.textSearch(request, (results, status) => {
@@ -74,9 +69,9 @@ function updateWelcomeMessage(content) {
  * This funtion makes the activity input section visable.
  */
 function showActivityBtn() {
-    const googleMapsSection = document.querySelector('.activity-btn');
-    if (googleMapsSection) {
-        googleMapsSection.style.display = 'block'; // Show the section
+    const activityBtnSection = document.querySelector('.activity-btn');
+    if (activityBtnSection) {
+        activityBtnSection.style.display = 'block'; // Show the section
     }
 }
 
@@ -84,7 +79,6 @@ function showActivityBtn() {
  * This funtion makes the google maps visable.
  */
 function showActivitySection() {
-
     const googleMapsSection = document.querySelector('.google-map-display');
     if (googleMapsSection) {
         googleMapsSection.style.display = 'block'; // Show the section
@@ -98,9 +92,9 @@ function showActivitySection() {
  */
 function fetchWeather(dayLimit = 5) {
     let url = `https://pro.openweathermap.org/data/2.5/onecall?lat=${latVar}&lon=${longVar}&appid=${'abc17e60a5096905541565302be6c107'}&units=${'metric'}&lang=${'en'}`;
-    // using fetch then to ensure it fetches first before moving on
+    // Using fetch then to ensure it fetches first before moving on
     fetch(url)
-        .then(response => response.json())
+        .then((response) => response.json())
         .then(data => {
             displayForecast(data, dayLimit);
         })
@@ -111,9 +105,9 @@ function fetchWeather(dayLimit = 5) {
 }
 
 /**
- * This function create the HTML with the data from the OpenWeatherMap API
- * @param {*} data 
- * @param {*} dayLimit 
+ * This function create the HTML with the data from the OpenWeatherMap API.
+ * @param {*} data
+ * @param {*} dayLimit
  */
 function displayForecast(data, dayLimit) {
     updateWelcomeMessage('');
@@ -149,7 +143,7 @@ function displayForecast(data, dayLimit) {
 
 /**
  * This function changes the color of the card depending on the weather condition.
- * @param {*} id The weather condition ID according to the OpenWeatherMap weather conditions. 
+ * @param {*} id The weather condition ID according to the OpenWeatherMap weather conditions.
  * @returns A CSS linear-gradient string representing the gradient to be applied based on the weather condition.
  */
 function getWeatherGradient(id) {
