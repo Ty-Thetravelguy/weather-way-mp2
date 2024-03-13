@@ -258,6 +258,13 @@ p {
 
 /***************************** Media Queries */
 
+@media (max-width: 1246px) {
+    .card-img-top {
+        width: 150px;
+        height: 150px;
+    }
+}
+
 @media (max-width: 1024px) {
 
     .bg-img-home {
@@ -268,7 +275,6 @@ p {
         font-size: 100px;
         top: 50%;
     }
-
 }
 
 @media (max-width: 916px) {
@@ -294,9 +300,6 @@ p {
     }
 
     .card-img-top {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
         width: 100px;
         height: 100px;
     }
@@ -329,6 +332,13 @@ p {
 
     #footer-details p {
         font-size: 12px;
+    }
+}
+
+@media (max-width: 575px) {
+    .card-img-top {
+        width: 150px;
+        height: 150px;
     }
 }
 

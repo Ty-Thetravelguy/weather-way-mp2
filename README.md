@@ -137,3 +137,35 @@ I ran the website through [W3C Markup Validation Service](https://validator.w3.o
 I ran the website through [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/). There are errors from Bootstrap, and warnings about the transform used in my css.
 
 I also tested my js through [JSLint](https://www.jslint.com/). I asked Chat GPT to run thorugh the warnings. I learnt that JSlnt doesn't like it when lines of code has more than 80 characters. I have my VS code set to 120 which i'm happy with. I also learnt that JSLint doesn't like single quote, but i've chosen to leave my JS with single quotes and that it doesn't seem to like the arrow function method. It seems it prefer the reidutional way for more complex function, but i don't think my funtion is very complex. There were a few spacing warning which I corrected and a peice of code which advised I should inclose in parentheses which I did.
+
+I conducted extensive cross-browser testing, meticulously reviewing the website in various browsers. During this process, I systematically clicked on every link on each page to verify their functionality and ensure a consistent, error-free user experience across different platforms.
+
+1. Google Chrome
+2. Microsoft Edge
+3. Opera
+4. Mozilla Firefox
+5. DuckDuckGo
+
+I did notice a few styling issues on smaller screen resolutions which I corrected. Nothing which would have caused an issue, more just for visual appearance.
+
+I also ran each page through [Lighthouse via Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/accessibility/lighthouse) aiming to significantly elevate the overall quality of the website. This comprehensive analysis helped identify and address key aspects of performance, accessibility, best practices, and SEO to enhance the site's effectiveness and user experience. I ran this for both desktop and mobile.
+
+### Desktop
+
+#### Desktop Home Page
+
+![index.html](assets/images-for-readme/lighthouse-web-index-page.png)
+
+#### Desktop Contact Page
+
+![contact-us](assets/images-for-readme/lighthouse-web-contact-page.png)
+
+### Mobile
+
+#### Mobile Home Page
+
+![index.html](assets/images-for-readme/lighthouse-mobile-index-page.png)
+
+#### Mobile Contact Page
+
+![contact-us](assets/images-for-readme/lighthouse-mobile-contact-page.png)
