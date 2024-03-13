@@ -22,13 +22,11 @@ Click [Here](https://ty-thetravelguy.github.io/weather-today-mp2/) to view the w
 
 4. [Technoligy used](#technology-used)
 
-5. [Issues/Bugs](#issuesbugs)
+5. [Bugs](#bugs)
 
 6. [Testing](#testing)
 
-7. [Deployment](#deployment)
-
-8. [Credits](#credits)
+7. [Credits](#credits)
 
 ## Business Needs
 
