@@ -8,6 +8,28 @@ Click [Here](https://ty-thetravelguy.github.io/weather-today-mp2/) to view the w
 
 ![Mockup](assets/images-for-readme/weather-way-mockup.png)
 
+## Table of contents
+
+1. [Business Needs](#business-needs)
+
+2. [User Needs](#user-needs)
+
+3. [Design Process](#design-process)
+
+    1. [Colors](#colors)
+
+    2. [Wireframe](#wireframe)
+
+4. [Technoligy used](#technology-used)
+
+5. [Issues/Bugs](#issuesbugs)
+
+6. [Testing](#testing)
+
+7. [Deployment](#deployment)
+
+8. [Credits](#credits)
+
 ## Business Needs
 
 1. Attract and Retain Users: Establish a platform that becomes the go-to resource for weather-related planning, thereby increasing user engagement and loyalty.
@@ -169,3 +191,9 @@ I also ran each page through [Lighthouse via Microsoft Edge](https://learn.micro
 #### Mobile Contact Page
 
 ![contact-us](assets/images-for-readme/lighthouse-mobile-contact-page.png)
+
+## Credits
+
+* My mentor Spencer Barriball.
+  * Spencer has been great in reminding to make notes throughout my code and put my mind at ease that my project was a good ida.
+* When searching for an idea for this MP2, I came across [Steve Griffith on YouTube](https://www.youtube.com/@SteveGriffith-Prof3ssorSt3v3). I must give alot of credit to him because without his vidow, I wouldn't understand what I know now. Some of the code I used was his, but I made sure I made it unique to my project and that I understood everything I was doing.
