@@ -256,6 +256,16 @@ p {
     color: #DDD0C8
 }
 
+/***************************** 404 Page */
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+}
+
 /***************************** Media Queries */
 
 @media (max-width: 1246px) {
