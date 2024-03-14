@@ -85,7 +85,7 @@ function showActivitySection() {
     }
 }
 
-
+// Credit to Steve Griffith - See credit on readme.md. 
 /**
  * This function will take the longitude and latitude cordinates from the google API and call the weather data from the OpenWeatherMap API.
  * @param {int} dayLimit number of days defaults to 5 if none entered.
@@ -104,6 +104,7 @@ function fetchWeather(dayLimit = 5) {
         });
 }
 
+// Credit to Steve Griffith - See credit on readme.md. 
 /**
  * This function create the HTML with the data from the OpenWeatherMap API.
  * @param {*} data
