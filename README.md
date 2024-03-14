@@ -126,6 +126,10 @@ HTML5 / CSS3 / JavaScript
 
 [W3Schools](https://my-learning.w3schools.com/) to look up syntax and when I was trying to figure out how to create some JavaScript.
 
+[Mmdn](https://developer.mozilla.org/en-US/) to help with understanding and learning JavaScript functions.
+
+[Chat GPT](https://chat.openai.com/) to help with debugging and learning about some of the code I used.
+
 [Google Fonts](https://fonts.google.com/) for my fonts.
 
 [Font Awesome](https://fontawesome.com/) for my icons on my footer.
