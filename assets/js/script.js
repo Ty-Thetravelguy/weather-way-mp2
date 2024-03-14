@@ -166,7 +166,7 @@ function getWeatherGradient(id) {
         colors = ['#FF9C12', '#FFA257', '#FFAE8B']; // Cloudy
     }
     // Apply the gradient to the card
-    return `linear-gradient(to right, ${colors[0]}, ${colors[1]}, ${colors[2]})`;
+    return `linear-gradient(to left, ${colors[0]}, ${colors[1]}, ${colors[2]})`;
 }
 
 /**
