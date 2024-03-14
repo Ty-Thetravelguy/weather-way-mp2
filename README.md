@@ -20,13 +20,17 @@ Click [Here](https://ty-thetravelguy.github.io/weather-today-mp2/) to view the w
 
     2. [Wireframe](#wireframe)
 
+    3. [Screenshots](screenshots)
+
 4. [Technoligy used](#technology-used)
 
 5. [Bugs](#bugs)
 
 6. [Testing](#testing)
 
-7. [Credits](#credits)
+7. [Deployment](#deployment)
+
+8. [Credits](#credits)
 
 ## Business Needs
 
@@ -101,6 +105,16 @@ Stormy - #6E6590, #8A80AD, #A89DCB
 ### Wireframe
 
 ![Wireframe](assets/images-for-readme/Weather-Way-App-Wireframe.png)
+
+### Screenshots
+
+![index.html](assets/images-for-readme/ss-index.html.png)
+
+![weather-search](assets/images-for-readme/ss-weather-search.png)
+
+![activity-search](assets/images-for-readme/ss-activity-search.png)
+
+![contact-form](assets/images-for-readme/ss-contact-form.png)
 
 ## Technology Used
 
@@ -191,6 +205,32 @@ I also ran each page through [Lighthouse via Microsoft Edge](https://learn.micro
 #### Mobile Contact Page
 
 ![contact-us](assets/images-for-readme/lighthouse-mobile-contact-page.png)
+
+## Deployment
+
+### Deploying my project
+
+1. I went onto [GitHub](https://github.com/).
+2. Navigated to my [Weather Way Repository](https://github.com/Ty-Thetravelguy/weather-way-mp2).
+3. Clicked settings along the top options bar.
+4. Clicked pages found on the left under "code and automation".
+5. Under "Branch", I changed it from none to main, and saved.
+6. Refreshed the screen and the link was provided at the top of the screen.
+
+### Cloning my project
+
+If you would like to work on my project further, you can clone mine or create your own which is called forking.
+
+#### Cloning
+
+1. Scroll to the top of my repository and click the "Code" button and choose "Clone" with HTTPS or SSH.
+2. You'll get a URL which can use to clone the repository.
+
+#### Creating your own (Forking)
+
+1. Instead of cloning, you can directly fork my repository to create a copy under your GitHub account.
+2. To do this, you simply click the "Fork" button on the top right of my repository's GitHub page.
+3. This creates a copy of my repository in your account, which can then clone, modify, and work with as your own repository.
 
 ## Credits
 
