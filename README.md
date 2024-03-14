@@ -116,6 +116,10 @@ Stormy - #6E6590, #8A80AD, #A89DCB
 
 ![contact-form](assets/images-for-readme/ss-contact-form.png)
 
+![Using the contact form](assets/images-for-readme/ss-email-sent.png)
+
+![The actual email](assets/images-for-readme/ss-the-email.png)
+
 ## Technology Used
 
 I created my Wireframe using Balsamiq Wireframes, which was downloaded onto my computer.
