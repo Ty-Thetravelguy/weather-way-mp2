@@ -4,7 +4,7 @@
 
 Weather Way flips the script on traditional activity planning by placing the weather at the heart of your decision-making process. Here's how it works: you start by checking the weather for your desired location and date. With this information in hand, our platform then invites you to explore a diverse array of activities that perfectly align with the forecast. Whether you're keen on enjoying live music under the stars on a clear night, cozying up in a charming coffee shop during a drizzle, or wandering through the quiet halls of a museum on a rainy afternoon, Weather Way makes it effortless. Our unique approach ensures that the weather guides you towards making the best out of your day, turning what could have been a deterrent into an opportunity to discover the perfect activities for any condition.
 
-Click [Here](https://ty-thetravelguy.github.io/weather-today-mp2/) to view the webpage.
+Click [Here](https://ty-thetravelguy.github.io/weather-way-mp2/) to view the webpage.
 
 ![Mockup](assets/images-for-readme/weather-way-mockup.png)
 
