@@ -148,6 +148,8 @@ Throughout the development of my app, I relied heavily on console.log for debugg
 
 During testing, while running the JS through JSlint, in my fectchWeather function, it suggested to include "responce" in parenthese (.then((response) => response.json())).
 
+One noticeable issue I encountered was that although my app functioned properly on a computer and was designed to work on mobile devices with smaller screens, it failed to operate correctly when actually accessed from a mobile device. I wasn't completely sure what caused this problem, but I observed that after running my JavaScript through JSLint and correcting a significant syntax error where I had not i included "response" in parentheses, including it subsequently rectified the issue. Consequently, my app started working on mobile devices as well, which I'm very pleased about.
+
 Although not a bug, I initially wanted to have 3 buttoms, one which show the weather for today, then another for a 3 day forcast, and another for a 5 day forcast. I did manage to get this to work but decided to remove it because it didn't make sence to have these three options. Seeing the weather for 5 days gives you everything you need.
 
 ## Testing
