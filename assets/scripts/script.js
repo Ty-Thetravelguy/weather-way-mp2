@@ -70,7 +70,7 @@ function updateWelcomeMessage(content) {
 function showActivityBtn() {
     const activityBtnSection = document.querySelector('.activity-btn');
     if (activityBtnSection) {
-        activityBtnSection.style.display = 'block'; // Show the section
+        activityBtnSection.style.display = 'block'; 
     }
 }
 
@@ -80,7 +80,7 @@ function showActivityBtn() {
 function showActivitySection() {
     const googleMapsSection = document.querySelector('.google-map-display');
     if (googleMapsSection) {
-        googleMapsSection.style.display = 'block'; // Show the section
+        googleMapsSection.style.display = 'block'; 
     }
 }
 

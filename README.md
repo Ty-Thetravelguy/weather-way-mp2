@@ -16,7 +16,7 @@ Click [Here](https://ty-thetravelguy.github.io/weather-way-mp2/) to view the web
 
 3. [Design Process](#design-process)
 
-    1. [Colors](#colors)
+    1. [Colours](#colours)
 
     2. [Wireframe](#wireframe)
 
@@ -56,11 +56,11 @@ Click [Here](https://ty-thetravelguy.github.io/weather-way-mp2/) to view the web
 
 ## Design Process
 
-In designing the weather app, the primary goal was to create an interface that was not only functional but also visually engaging and intuitive for users. The decision to use specific color palettes for both the website and the weather cards was driven by the desire to enhance user experience and convey information through colour effectively.
+In designing the weather app, the primary goal was to create an interface that was not only functional but also visually engaging and intuitive for users. The decision to use specific colour palettes for both the website and the weather cards was driven by the desire to enhance user experience and convey information through colour effectively.
 
-The website itself employs a sophisticated and modern color scheme with shades of dark blue (#0C1330), muted purple (#474554), soft lavender (#ACA7CB), and light grey (#E0E0E0). This palette was chosen to create a calming and professional backdrop that allows the vibrant weather cards to stand out, ensuring users can quickly gauge the weather outlook without being overwhelmed by the interface's base colors.
+The website itself employs a sophisticated and modern colour scheme with shades of dark blue (#0C1330), muted purple (#474554), soft lavender (#ACA7CB), and light grey (#E0E0E0). This palette was chosen to create a calming and professional backdrop that allows the vibrant weather cards to stand out, ensuring users can quickly gauge the weather outlook without being overwhelmed by the interface's base colours.
 
-For the weather cards, the use of gradients serves a dual purpose: aesthetically pleasing transitions and a visual representation of weather conditions. The gradients ranging from sunny, cloudy, snowy, rainy, foggy, to stormy weather conditions utilise specific color schemes to evoke the essence of each weather type, making the app not just visually appealing but also highly informative at a glance.
+For the weather cards, the use of gradients serves a dual purpose: aesthetically pleasing transitions and a visual representation of weather conditions. The gradients ranging from sunny, cloudy, snowy, rainy, foggy, to stormy weather conditions utilise specific colour schemes to evoke the essence of each weather type, making the app not just visually appealing but also highly informative at a glance.
 
 Originally, I envisioned the app with three buttons for varying forecast lengths. However, upon reflection, I decided against this feature, concluding that a 5-day forecast sufficiently addresses user needs without complicating the interface.
 
@@ -70,13 +70,13 @@ Additionally, a "Contact Us" form was implemented, leveraging the EmailJS API, t
 
 In summary, the design process of the weather app was deeply influenced by the desire to create a user-centric interface. The thoughtful selection of color schemes, the integration of essential APIs for accuracy and global weather data, and the inclusion of a contact mechanism, all contribute to a comprehensive and intuitive user experience. The app not only serves as a tool for checking the weather but also as a guide for planning activities, reflecting a seamless blend of aesthetic appeal and functionality.
 
-### Colors
+### Colours
 
-#### Website Colors
+#### Website Colours
 
-Colors - #0C1330, #474554, #ACA7CB, #E0E0E0
+Colours - #0C1330, #474554, #ACA7CB, #E0E0E0
 
-![Website colors](assets/images-for-readme/webpage-colors-img.png)
+![Website colours](assets/images-for-readme/webpage-colors-img.png)
 
 #### Weather Cards
 
@@ -140,9 +140,9 @@ HTML5 / CSS3 / JavaScript
 
 [Font Awesome](https://fontawesome.com/) for my icons on my footer.
 
-[My Color Space](https://mycolor.space/) to look for colors which worked together.
+[My Color Space](https://mycolor.space/) to look for colours which worked together.
 
-[Coolors](https://coolors.co/) to create my color palettes.
+[Coolors](https://coolors.co/) to create my colour palettes.
 
 [iStockPhotos](https://www.istockphoto.com/) where I found and paid for the image.
 
@@ -158,11 +158,11 @@ HTML5 / CSS3 / JavaScript
 
 ## Bugs
 
-While developing my app, I encountered a spacing issue after the paragraph with the ID welcomeMessage. Initially, I tried toggling visibility with visibility: hidden/visible to manage the paragraph's display. However, the containing div remained visible. Uncertain how to proceed, I consulted with ChatGPT and learned about evaluating content truthiness post-trimming, given that an empty string evaluates as falsy. This insight led me to switch to style.display = 'none' to effectively show and hide content, resolving the spacing issue seamlessly.
+While developing my app, I encountered a spacing issue after the paragraph with the ID welcomeMessage. Initially, I tried toggling visibility with visibility: hidden/visible to manage the paragraph's display. However, the containing div remained visible. Uncertain how to proceed, I asked Chat GPT about this and learned about evaluating content truthiness post-trimming, given that an empty string evaluates as falsy. This insight led me to switch to style.display = 'none' to effectively show and hide content, resolving the spacing issue seamlessly.
 
 Integrating the Google Places Autocomplete API presented its own set of challenges. Missteps with the script URL and an overwhelming amount of data returned were initial hurdles. The turning point came when I specified the types object as cities, refining the API's output to align with my needs for city names only.
 
-Displaying the Google Map introduced another hurdle. My CSS mistakenly used .map (class selector) instead of #map (ID selector), which impeded the JavaScript from locating the map ID. This oversight was corrected with help from student tutoring, reinforcing the distinction between IDs for unique elements and classes for groups sharing styles or functions.
+Displaying the Google Map introduced another hurdle. In my CSS I mistakenly used .map (class selector) instead of #map (ID selector), which impeded the JavaScript from locating the map ID. This oversight was corrected with help from student tutoring, reinforcing the distinction between IDs for unique elements and classes for groups sharing styles or functions.
 
 Working with the Open Weather Map API was particularly daunting. Despite my confidence in the constructed URL, data retrieval remained elusive until I secured a student developer account and accessed a different URL. This breakthrough significantly advanced my project.
 
@@ -170,9 +170,9 @@ Enhancing the presentation of weather data also posed a challenge. The initial d
 
 Throughout the development process, console.log was invaluable for debugging and experimentation, substantially deepening my JavaScript proficiency. ChatGPT played a crucial role, offering guidance and bolstering my problem-solving capabilities.
 
-During testing and code validation with JSLint, the tool suggested wrapping response in parentheses for the fetchWeather function, which notably enhanced the app's mobile compatibility—a previously know unresolved issue when testing the weather app on a mobile. This correction seemed to marked a significant improvement in the app's functionality across mobile devices.
+During testing and code validation with JSLint, the tool suggested wrapping "response" in parentheses for the fetchWeather function, which notably enhanced the app's mobile compatibility—a previously know unresolved issue when testing the weather app on a mobile. This correction seemed to marked a significant improvement in the app's functionality across mobile devices.
 
-One notable issue I picked up during testing involved the premature execution of showActivityBtn() following an invalid location search. Refactoring the code to conditionally execute showActivityBtn() and displayForecast() based on data validity effectively resolved this issue, ensuring a smoother user experience.
+Another notable issue I picked up during testing involved the premature execution of showActivityBtn() following an invalid location search. Refactoring the code to conditionally execute showActivityBtn() and displayForecast() based on data validity effectively resolved this issue, ensuring a smoother user experience. See testing for more information.
 
 ## Testing
 
@@ -182,7 +182,7 @@ I ran the website through [W3C CSS Validation Service](https://jigsaw.w3.org/css
 
 After running my JavaScript code through [JSLint](https://www.jslint.com/) I asked Chat GPT about the warnings, and I learned quite a bit about coding standards. JSLint has a preference for lines not exceeding 80 characters, but my setup in Visual Studio Code is tailored to 120 characters, which I prefer. It also emerged that JSLint has a penchant for double quotes over single quotes, yet I've opted to stick with single quotes for my JavaScript. Furthermore, while JSLint shows a preference for traditional function declarations over arrow functions for complex operations, I judged my functions to be straightforward enough not to warrant this adjustment. I made corrections for several spacing warnings identified by JSLint and also enclosed a specific piece of code in parentheses following its recommendation. See bugs to read more on mobile device bug which was solived after running my code through JSLint.
 
-I conducted extensive cross-browser testing, meticulously reviewing the website in various browsers. During this process, I systematically clicked on every link on each page to verify their functionality and ensure a consistent, error-free user experience across different platforms.
+I conducted extensive cross-browser testing, meticulously reviewing the website in various browsers. During this process, I systematically clicked on every link and button on each page to verify their functionality and ensure a consistent, error-free user experience across different platforms.
 
 1. Google Chrome
 2. Microsoft Edge
@@ -294,6 +294,8 @@ If you would like to work on my project further, you can clone mine or create yo
 
 - My mentor Spencer Barriball.
   - Spencer has been great in reminding to make notes throughout my code and put my mind at ease that my project was a good idea.
+
+- Studient Tutoring.
 
 - When searching for an idea for this MP2, I came across [Steve Griffith on YouTube](https://www.youtube.com/@SteveGriffith-Prof3ssorSt3v3). I must give alot of credit to him because without his video, I wouldn't understand what I know now. Some of the code I used was his, but I made sure I made it unique to my project and that I understood everything I was doing.
 
