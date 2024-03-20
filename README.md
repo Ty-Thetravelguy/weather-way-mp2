@@ -156,23 +156,23 @@ HTML5 / CSS3 / JavaScript
 
 ## Bugs
 
-Encountering a spacing issue after the paragraph with the ID welcomeMessage, I initially toggled visibility using visibility = hidden/visible to hide and show the paragraph. I realized that the containing div wasn't disappearing, but I wasn't sure how to resolve this. After some research and consulting with ChatGPT, I learned to create a function that checks if the content is truthy after trimming, as an empty string is considered falsy. Following this advice, I switched from using visibility = hidden/visible to style.display = none for showing and hiding content.
+While developing my app, I encountered a spacing issue after the paragraph with the ID welcomeMessage. Initially, I tried toggling visibility with visibility: hidden/visible to manage the paragraph's display. However, the containing div remained visible. Uncertain how to proceed, I consulted with ChatGPT and learned about evaluating content truthiness post-trimming, given that an empty string evaluates as falsy. This insight led me to switch to style.display = 'none' to effectively show and hide content, resolving the spacing issue seamlessly.
 
-While integrating the Google Places Autocomplete API, I initially struggled to get it working. After delving into the Google Console, I discovered I was using the incorrect script URL. Once corrected, I noticed the API returned more information than I needed; I only wanted city names, but it provided full addresses. Further investigation led me to specify the types object as cities to narrow down the results to my requirements.
+Integrating the Google Places Autocomplete API presented its own set of challenges. Missteps with the script URL and an overwhelming amount of data returned were initial hurdles. The turning point came when I specified the types object as cities, refining the API's output to align with my needs for city names only.
 
-I faced another challenge when displaying the Google Map. Despite assigning the map div an ID of map, my CSS incorrectly used the . prefix for classes instead of # for IDs, preventing the JavaScript code from finding the map ID. This frustrating oversight was eventually clarified through student tutoring and reminded me of the importance of using IDs for unique elements and classes for multiple elements that share the same styling or functionality.
+Displaying the Google Map introduced another snag. My CSS mistakenly used .map (class selector) instead of #map (ID selector), which impeded the JavaScript from locating the map ID. This oversight was corrected with help from student tutoring, reinforcing the distinction between IDs for unique elements and classes for groups sharing styles or functions.
 
-Working with the Open Weather Map API presented a significant challenge, as I couldn't get it to function correctly. Though I believed my URL was accurate, it wasn't until I signed up for a student developer account and received a different URL that I began receiving data. This breakthrough was a relief.
+Working with the Open Weather Map API was particularly daunting. Despite my confidence in the constructed URL, data retrieval remained elusive until I secured a student developer account and accessed a different URL. This breakthrough significantly advanced my project.
 
-Lastly, the presentation of weather data in my app was initially less polished than I preferred, with temperatures and precipitation levels displaying too many decimal places. Recalling the round() method from my notes and applying it greatly improved the data's appearance.
+Enhancing the presentation of weather data also posed a challenge. The initial display of temperature and precipitation was overly precise. Implementing the Math.round() method refined the presentation, making it more user-friendly.
 
-Throughout the development of my app, I relied heavily on console.log for debugging and experimentation. This process has dramatically improved my understanding of JavaScript. ChatGPT has been instrumental in guiding me through various challenges and enhancing my problem-solving skills.
+Throughout the development process, console.log was invaluable for debugging and experimentation, substantially deepening my JavaScript proficiency. ChatGPT played a crucial role, offering guidance and bolstering my problem-solving capabilities.
 
-During testing, while running the JS through JSlint, in my fectchWeather function, it suggested to include "responce" in parenthese (.then((response) => response.json())).
+During testing and code validation with JSLint, the tool suggested wrapping response in parentheses for the fetchWeather function, which notably enhanced the app's mobile compatibility—a previously unresolved issue. This correction marked a significant improvement in the app's functionality across devices.
 
-One noticeable issue I encountered was that although my app functioned properly on a computer and was designed to work on mobile devices with smaller screens, it failed to operate correctly when actually accessed from a mobile device. I wasn't completely sure what caused this problem, but I observed that after running my JavaScript through JSLint and correcting a significant syntax error where I had not i included "response" in parentheses, including it subsequently rectified the issue. Consequently, my app started working on mobile devices as well, which I'm very pleased about.
+Originally, I envisioned the app with three buttons for varying forecast lengths. However, upon reflection, I decided against this feature, concluding that a 5-day forecast sufficiently addresses user needs without complicating the interface.
 
-Although not a bug, I initially wanted to have 3 buttoms, one which show the weather for today, then another for a 3 day forcast, and another for a 5 day forcast. I did manage to get this to work but decided to remove it because it didn't make sence to have these three options. Seeing the weather for 5 days gives you everything you need.
+One notable issue involved the premature execution of showActivityBtn() following an invalid location search. Refactoring the code to conditionally execute showActivityBtn() and displayForecast() based on data validity effectively resolved this issue, ensuring a smoother user experience.
 
 ## Testing
 
@@ -214,6 +214,52 @@ I also ran each page through [Lighthouse via Microsoft Edge](https://learn.micro
 
 ![contact-us](assets/images-for-readme/lighthouse-mobile-contact-page.png)
 
+### Testing Documentation for script.js
+
+#### Testing Scenario: Missing Location Input
+
+- **Question:** What happens if the user doesn't enter a location in the required field and clicks "Go For Weather"?
+- **Result:** A popup alert is displayed with the message, “Please input a city name to view its weather forecast.” After acknowledging the alert, no changes occur on the page. This feature is functioning correctly.
+
+#### Testing Scenario: Incorrect City Name
+
+- **Question:** What occurs if a user inputs a misspelled city name or a location that isn’t recognised as a city without selecting from the Google Places API suggestions?
+- **Result:** Upon inputting an invalid city name or a location not recognised as a city by the Google API Places API, an alert is displayed with the message, "An error occurred while fetching the weather data. Please enter a valid city name. If the error persists, please contact us." Initially, this scenario inadvertently triggered the showActivityBtn() function, which was not the desired outcome. To address this, I restructured the implementation to call showActivityBtn() within the fetchWeather() function, but only under the condition of receiving valid input and data. This modification was part of a broader refactor advised by consultation, incorporating an additional .then clause in the fetch(url) promise. This clause verifies the format of the data received, ensuring that displayForecast() and showActivityBtn() functions are executed exclusively when valid data is obtained. Following these adjustments, the alert now properly signals data-fetching errors without prematurely invoking related UI changes, aligning the application's behaviour with expectations.
+
+#### Testing Scenario: Using the "Start Over" Button
+
+- **Question:** What is the behaviour when the "Start Over" button is clicked under various conditions?
+- **Result:**
+  - Without initiating a weather search but the user has added their location, clicking "Start Over" clears the input field, functioning as expected.
+  - After a successful weather search, clicking "Start Over" clears the input and weather information, restoring the initial state.
+  - Following a successful weather search and activity search, "Start Over" resets the input field, removes weather data and Google Maps with activity markers, reverting back to the initial state. The "Start Over" button works flawlessly across scenarios.
+
+### Testing Documentation for ContactForm.js
+
+#### Testing Scenario: Empty Form Submission
+
+- **Question:** What happens if the user attempts to submit the form without filling it out?
+- **Result:** To enhance validation, I shifted from HTML's required attributes to JavaScript-based validation. An if statement now checks for empty fields, triggering a popup alert with, "Please fill in all fields before submitting" if necessary. This validation works correctly.
+
+#### Testing Scenario: Form Reset
+
+- **Question:** What occurs when the user resets the form?
+- **Result:** All form fields are cleared as expected.
+
+#### Testing Scenario: Form Submission Feedback
+
+- **Question:** What feedback does the user receive upon form submission?
+- **Result:** Upon successful submission, an alert informs the user of success and clears the form. In the event of an error, an alternative alert indicates failure with the message, “Error, your message was not sent. Please try again!”. This was tested by intentionally altering the API key, prompting the error alert as expected.
+
+#### Testing Scenario: "Go Back" Button Functionality
+
+- **Question:** What functionality does the "Go Back" button provide?
+- **Result:** The "Go Back" button navigates the user back to the main index.html page, a function also replicated by clicking on the page's image. Both methods reliably return the user to the homepage.
+
+### Conclusion
+
+The testing confirms that the functionalities of both script.js and ContactForm.js are performing to specification, with no detected issues.
+
 ## Deployment
 
 ### Deploying my project
@@ -242,6 +288,9 @@ If you would like to work on my project further, you can clone mine or create yo
 
 ## Credits
 
-* My mentor Spencer Barriball.
-  * Spencer has been great in reminding to make notes throughout my code and put my mind at ease that my project was a good ida.
-* When searching for an idea for this MP2, I came across [Steve Griffith on YouTube](https://www.youtube.com/@SteveGriffith-Prof3ssorSt3v3). I must give alot of credit to him because without his vidow, I wouldn't understand what I know now. Some of the code I used was his, but I made sure I made it unique to my project and that I understood everything I was doing.
+- My mentor Spencer Barriball.
+  - Spencer has been great in reminding to make notes throughout my code and put my mind at ease that my project was a good ida.
+
+- When searching for an idea for this MP2, I came across [Steve Griffith on YouTube](https://www.youtube.com/@SteveGriffith-Prof3ssorSt3v3). I must give alot of credit to him because without his vidow, I wouldn't understand what I know now. Some of the code I used was his, but I made sure I made it unique to my project and that I understood everything I was doing.
+
+- Lastly, I want to express my gratitude to Ben Smith, my lecturer, for his support and motivation throughout this project. I encountered a few personal issues and began to lose confidence in my coding abilities, which I genuinely love. Ben was extremely professional and provided guidance that helped steer me back on track. Additionally, I am thankful for the extension he granted.

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
         getWeatherButton.addEventListener('click', () => {
             const userLocationInput = document.getElementById('userLocation').value;
             if (userLocationInput.trim() === '') { // Check if the input is empty
-                alert('Please enter a city for which you would like to see the weather.');
+                alert('Please input a city name to view its weather forecast.');
             } else {
                 // If there is an input, proceed with these functions
                 fetchWeather(5);
@@ -106,12 +106,11 @@ function fetchWeather(dayLimit = 5) {
                 throw new Error('Invalid data format');
             }
             displayForecast(data, dayLimit);
-            showActivityBtn(); // Call showActivityBtn() here after successful data retrieval and processing
+            showActivityBtn();
         })
         .catch(error => {
             console.error("Error fetching weather:", error);
             alert("An error occurred while fetching the weather data. Please enter a valid city name. If the error persists, please contact us."); // Display an alert to the user
-            // No need to call showActivityBtn() here since it's an error case
         });
 }
 

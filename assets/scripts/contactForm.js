@@ -15,11 +15,17 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
         message: document.getElementById('message').value // Email message content
     };
 
+    // Validate form data
+    if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+        alert('Please fill in all fields before submitting.');
+        return;
+    }
+
     // Uses the EmailJS SDK to send an email using the specified service and template IDs, populated with the user's form data.
     emailjs.send('service_7apagiv', 'template_2e0qu9m', formData)
         .then(function (response) {
             // This function is executed upon a successful email submission.
-            alert('Message sent'); // Notifies the user that their message was sent.
+            alert('Message sent successfully'); // Notifies the user that their message was sent.
             document.getElementById('contact-form').reset(); // Resets the form fields to empty, clearing the user input.
         }, function (error) {
             // This function is executed if the email submission fails.
@@ -28,6 +34,6 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
 });
 
 // Clears the contact us form. 
-Document.getElementById('reset-contact-form').addEventListener('clicked', function () {
+document.getElementById('reset-contact-form').addEventListener('clicked', function () {
     document.getElementById('contact-form').reset();
 });
