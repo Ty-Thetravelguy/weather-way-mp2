@@ -36,21 +36,27 @@ function initAutocomplete() {
     const activitySearchInput = document.getElementById('activity-search');
     const activitySearchButton = document.getElementById('getActivity');
     activitySearchButton.addEventListener('click', () => {
+        // Check if the input field is empty
+        const userInput = activitySearchInput.value.trim();
+        if (userInput === '') {
+            // If the input field is empty, show an alert
+            alert('Please type in an activity before searching. Why not try live music, or coffee shop?');
+        } else {
+            // Only proceed if there is user input
+            showActivitySection();
 
-        showActivitySection();
-
-        const userInput = activitySearchInput.value;
-        const request = {
-            location: new google.maps.LatLng(latVar, longVar),
-            query: userInput,
-            radius: 5000,
-        };
-        const service = new google.maps.places.PlacesService(document.createElement('div'));
-        service.textSearch(request, (results, status) => {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                displaySearchResults(results);
-            }
-        });
+            const request = {
+                location: new google.maps.LatLng(latVar, longVar),
+                query: userInput,
+                radius: 5000,
+            };
+            const service = new google.maps.places.PlacesService(document.createElement('div'));
+            service.textSearch(request, (results, status) => {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    displaySearchResults(results);
+                }
+            });
+        }
     });
 }
 
@@ -70,7 +76,7 @@ function updateWelcomeMessage(content) {
 function showActivityBtn() {
     const activityBtnSection = document.querySelector('.activity-btn');
     if (activityBtnSection) {
-        activityBtnSection.style.display = 'block'; 
+        activityBtnSection.style.display = 'block';
     }
 }
 
@@ -80,7 +86,7 @@ function showActivityBtn() {
 function showActivitySection() {
     const googleMapsSection = document.querySelector('.google-map-display');
     if (googleMapsSection) {
-        googleMapsSection.style.display = 'block'; 
+        googleMapsSection.style.display = 'block';
     }
 }
 

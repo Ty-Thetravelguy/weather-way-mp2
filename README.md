@@ -174,6 +174,8 @@ During testing and code validation with JSLint, the tool suggested wrapping "res
 
 Another notable issue I picked up during testing involved the premature execution of showActivityBtn() following an invalid location search. Refactoring the code to conditionally execute showActivityBtn() and displayForecast() based on data validity effectively resolved this issue, ensuring a smoother user experience. See testing for more information.
 
+I had a similar issue after the user searched for weather, and had the user not added an activity to the input field, clicked "Go For Activity", it tried to display something which wasn't there. I refactored the code to ensure if the input was black, that an alert popup would appear. In this modification, I've added a .trim() method call to the userInput value to remove any leading or trailing whitespace and a check if (userInput === '') was used to determine if the input field is empty.
+
 ## Testing
 
 I ran the website through [W3C Markup Validation Service](https://validator.w3.org/). No errors were found.
@@ -227,6 +229,11 @@ I also ran each page through [Lighthouse via Microsoft Edge](https://learn.micro
 
 - **Question:** What occurs if a user inputs a misspelled city name or a location that isn’t recognised as a city without selecting from the Google Places API suggestions?
 - **Result:** Upon inputting an invalid city name or a location not recognised as a city by the Google Places API, an alert is displayed with the message, "An error occurred while fetching the weather data. Please enter a valid city name. If the error persists, please contact us." Initially, this scenario inadvertently triggered the showActivityBtn() function, which was not the desired outcome. To address this, I restructured the implementation to call showActivityBtn() within the fetchWeather() function, but only under the condition of receiving valid input and data. This modification was part of a broader refactor which I asked Chat GPT for, and it included an additional .then clause in the fetch(url) promise. This clause verifies the format of the data received, ensuring that displayForecast() and showActivityBtn() functions are executed exclusively when valid data is obtained. Following these adjustments, the alert now properly signals data-fetching errors without prematurely invoking related UI changes, aligning the application's behaviour with expectations.
+
+#### Testing Scenario: No Activity input
+
+- **Question:** What would happen if the user didn't add an activity to the input field and clicked "Go For Activity"?
+- **Result:** I discovered that during this test, the program tried to display something which wasn't there, creating a large space which didn't look great. I refactored the code to ensure the user adds an activity before clicking on "Go For Activity". See bugs for more details. Now, the program will have a popup alert to advise the user "Please type in an activity before searching. Why not try live music, or a coffee shop?"
 
 #### Testing Scenario: Using the "Start Over" Button
 
