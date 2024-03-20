@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 // If there is an input, proceed with these functions
                 fetchWeather(5);
-                showActivityBtn();
             }
         });
     }
@@ -94,13 +93,25 @@ function fetchWeather(dayLimit = 5) {
     let url = `https://pro.openweathermap.org/data/2.5/onecall?lat=${latVar}&lon=${longVar}&appid=${'abc17e60a5096905541565302be6c107'}&units=${'metric'}&lang=${'en'}`;
     // Using fetch then to ensure it fetches first before moving on
     fetch(url)
-        .then((response) => response.json())
+        .then((response) => {
+            if (!response.ok) {
+                // If the response is not ok, throw an error to skip to the catch block
+                throw new Error('Failed to fetch weather data');
+            }
+            return response.json();
+        })
         .then(data => {
+            if (!data || !data.daily) {
+                // If the data is not in the expected format or missing daily forecast, throw an error
+                throw new Error('Invalid data format');
+            }
             displayForecast(data, dayLimit);
+            showActivityBtn(); // Call showActivityBtn() here after successful data retrieval and processing
         })
         .catch(error => {
             console.error("Error fetching weather:", error);
             alert("An error occurred while fetching the weather data. Please enter a valid city name. If the error persists, please contact us."); // Display an alert to the user
+            // No need to call showActivityBtn() here since it's an error case
         });
 }
 
