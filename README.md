@@ -62,6 +62,8 @@ The website itself employs a sophisticated and modern color scheme with shades o
 
 For the weather cards, the use of gradients serves a dual purpose: aesthetically pleasing transitions and a visual representation of weather conditions. The gradients ranging from sunny, cloudy, snowy, rainy, foggy, to stormy weather conditions utilize specific color schemes to evoke the essence of each weather type, making the app not just visually appealing but also highly informative at a glance.
 
+Originally, I envisioned the app with three buttons for varying forecast lengths. However, upon reflection, I decided against this feature, concluding that a 5-day forecast sufficiently addresses user needs without complicating the interface.
+
 The integration of the Google Places API with autocomplete functionality significantly enhances the user experience by ensuring the accuracy of city entries. This feature, coupled with the app's ability to fetch international weather data from the OpenWeather API using latitude and longitude coordinates, allows for a globally comprehensive weather service. Users can search for activities based on the weather, making the app a versatile tool for daily planning.
 
 Additionally, a "Contact Us" form was implemented, leveraging the EmailJS API, to allow users to send emails directly through the app. This feature fosters a direct line of communication between the user and the app developers, enhancing support and user engagement.
@@ -169,8 +171,6 @@ Enhancing the presentation of weather data also posed a challenge. The initial d
 Throughout the development process, console.log was invaluable for debugging and experimentation, substantially deepening my JavaScript proficiency. ChatGPT played a crucial role, offering guidance and bolstering my problem-solving capabilities.
 
 During testing and code validation with JSLint, the tool suggested wrapping response in parentheses for the fetchWeather function, which notably enhanced the app's mobile compatibility—a previously unresolved issue. This correction marked a significant improvement in the app's functionality across devices.
-
-Originally, I envisioned the app with three buttons for varying forecast lengths. However, upon reflection, I decided against this feature, concluding that a 5-day forecast sufficiently addresses user needs without complicating the interface.
 
 One notable issue involved the premature execution of showActivityBtn() following an invalid location search. Refactoring the code to conditionally execute showActivityBtn() and displayForecast() based on data validity effectively resolved this issue, ensuring a smoother user experience.
 
