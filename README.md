@@ -269,7 +269,7 @@ The "Start Over" button works flawlessly across scenarios.
 
 ### Conclusion
 
-The testing confirms that the functionalities of both script.js and ContactForm.js are performing to specification, with no detected issues.
+The testing confirms that the functionalities of both script.js and ContactForm.js are now performing to specification, with no detected issues.
 
 ## Deployment
 
