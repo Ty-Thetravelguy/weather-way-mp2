@@ -40,7 +40,7 @@ Click [Here](https://ty-thetravelguy.github.io/weather-way-mp2/) to view the web
 
 ### Future Development Business Wants
 
-1. Data Collection and Analysis: Gather data on user preferences and behaviour to refine and personalize the service offering, enhancing user satisfaction and the platform's value proposition.
+1. Data Collection and Analysis: Gather data on user preferences and behaviour to refine and personalise the service offering, enhancing user satisfaction and the platform's value proposition.
 2. Monetisation Strategies: Develop revenue models through advertising, partnerships with local businesses (like cafes, museums, and music venues), and premium subscription options offering additional features.
 
 ## User Needs
@@ -51,22 +51,22 @@ Click [Here](https://ty-thetravelguy.github.io/weather-way-mp2/) to view the web
 
 ### Future Development User Wants
 
-1. Personalization: The ability to receive recommendations based on personal preferences, previous searches, and location, making the planning process quicker and more relevant.
+1. Personalisation: The ability to receive recommendations based on personal preferences, previous searches, and location, making the planning process quicker and more relevant.
 2. Social Sharing and Collaboration: Features that enable users to share plans and activity suggestions with friends and family, facilitating social outings and collaborative planning.
 
 ## Design Process
 
-In designing the weather app, the primary goal was to create an interface that was not only functional but also visually engaging and intuitive for users. The decision to use specific color palettes for both the website and the weather cards was driven by the desire to enhance user experience and convey information through color effectively.
+In designing the weather app, the primary goal was to create an interface that was not only functional but also visually engaging and intuitive for users. The decision to use specific color palettes for both the website and the weather cards was driven by the desire to enhance user experience and convey information through colour effectively.
 
 The website itself employs a sophisticated and modern color scheme with shades of dark blue (#0C1330), muted purple (#474554), soft lavender (#ACA7CB), and light grey (#E0E0E0). This palette was chosen to create a calming and professional backdrop that allows the vibrant weather cards to stand out, ensuring users can quickly gauge the weather outlook without being overwhelmed by the interface's base colors.
 
-For the weather cards, the use of gradients serves a dual purpose: aesthetically pleasing transitions and a visual representation of weather conditions. The gradients ranging from sunny, cloudy, snowy, rainy, foggy, to stormy weather conditions utilize specific color schemes to evoke the essence of each weather type, making the app not just visually appealing but also highly informative at a glance.
+For the weather cards, the use of gradients serves a dual purpose: aesthetically pleasing transitions and a visual representation of weather conditions. The gradients ranging from sunny, cloudy, snowy, rainy, foggy, to stormy weather conditions utilise specific color schemes to evoke the essence of each weather type, making the app not just visually appealing but also highly informative at a glance.
 
 Originally, I envisioned the app with three buttons for varying forecast lengths. However, upon reflection, I decided against this feature, concluding that a 5-day forecast sufficiently addresses user needs without complicating the interface.
 
 The integration of the Google Places API with autocomplete functionality significantly enhances the user experience by ensuring the accuracy of city entries. This feature, coupled with the app's ability to fetch international weather data from the OpenWeather API using latitude and longitude coordinates, allows for a globally comprehensive weather service. Users can search for activities based on the weather, making the app a versatile tool for daily planning.
 
-Additionally, a "Contact Us" form was implemented, leveraging the EmailJS API, to allow users to send emails directly through the app. This feature fosters a direct line of communication between the user and the app developers, enhancing support and user engagement.
+Additionally, a "Contact Us" form was implemented, leveraging the EmailJS API, to allow users to send emails directly through the app. This feature fosters a direct line of communication between the user and the app developer, enhancing support and user engagement.
 
 In summary, the design process of the weather app was deeply influenced by the desire to create a user-centric interface. The thoughtful selection of color schemes, the integration of essential APIs for accuracy and global weather data, and the inclusion of a contact mechanism, all contribute to a comprehensive and intuitive user experience. The app not only serves as a tool for checking the weather but also as a guide for planning activities, reflecting a seamless blend of aesthetic appeal and functionality.
 
@@ -146,7 +146,7 @@ HTML5 / CSS3 / JavaScript
 
 [iStockPhotos](https://www.istockphoto.com/) where I found and paid for the image.
 
-[Google Console](https://developers.google.com/) to learn about their APIs, create my key and restict the key.
+[Google Console](https://developers.google.com/) to learn about their APIs, create my key and restrict the key.
 
 [Open Weather Map](https://openweathermap.org/) the API I used to get the weather data.
 
@@ -162,7 +162,7 @@ While developing my app, I encountered a spacing issue after the paragraph with 
 
 Integrating the Google Places Autocomplete API presented its own set of challenges. Missteps with the script URL and an overwhelming amount of data returned were initial hurdles. The turning point came when I specified the types object as cities, refining the API's output to align with my needs for city names only.
 
-Displaying the Google Map introduced another snag. My CSS mistakenly used .map (class selector) instead of #map (ID selector), which impeded the JavaScript from locating the map ID. This oversight was corrected with help from student tutoring, reinforcing the distinction between IDs for unique elements and classes for groups sharing styles or functions.
+Displaying the Google Map introduced another hurdle. My CSS mistakenly used .map (class selector) instead of #map (ID selector), which impeded the JavaScript from locating the map ID. This oversight was corrected with help from student tutoring, reinforcing the distinction between IDs for unique elements and classes for groups sharing styles or functions.
 
 Working with the Open Weather Map API was particularly daunting. Despite my confidence in the constructed URL, data retrieval remained elusive until I secured a student developer account and accessed a different URL. This breakthrough significantly advanced my project.
 
@@ -170,9 +170,9 @@ Enhancing the presentation of weather data also posed a challenge. The initial d
 
 Throughout the development process, console.log was invaluable for debugging and experimentation, substantially deepening my JavaScript proficiency. ChatGPT played a crucial role, offering guidance and bolstering my problem-solving capabilities.
 
-During testing and code validation with JSLint, the tool suggested wrapping response in parentheses for the fetchWeather function, which notably enhanced the app's mobile compatibility—a previously unresolved issue. This correction marked a significant improvement in the app's functionality across devices.
+During testing and code validation with JSLint, the tool suggested wrapping response in parentheses for the fetchWeather function, which notably enhanced the app's mobile compatibility—a previously know unresolved issue when testing the weather app on a mobile. This correction seemed to marked a significant improvement in the app's functionality across mobile devices.
 
-One notable issue involved the premature execution of showActivityBtn() following an invalid location search. Refactoring the code to conditionally execute showActivityBtn() and displayForecast() based on data validity effectively resolved this issue, ensuring a smoother user experience.
+One notable issue I picked up during testing involved the premature execution of showActivityBtn() following an invalid location search. Refactoring the code to conditionally execute showActivityBtn() and displayForecast() based on data validity effectively resolved this issue, ensuring a smoother user experience.
 
 ## Testing
 
@@ -180,7 +180,7 @@ I ran the website through [W3C Markup Validation Service](https://validator.w3.o
 
 I ran the website through [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/). There are errors from Bootstrap, and warnings about the transform used in my css.
 
-I also tested my js through [JSLint](https://www.jslint.com/). I asked Chat GPT to run thorugh the warnings. I learnt that JSlnt doesn't like it when lines of code has more than 80 characters. I have my VS code set to 120 which i'm happy with. I also learnt that JSLint doesn't like single quote, but i've chosen to leave my JS with single quotes and that it doesn't seem to like the arrow function method. It seems it prefer the reidutional way for more complex function, but i don't think my funtion is very complex. There were a few spacing warning which I corrected and a peice of code which advised I should inclose in parentheses which I did.
+After running my JavaScript code through [JSLint](https://www.jslint.com/) I asked Chat GPT about the warnings, and I learned quite a bit about coding standards. JSLint has a preference for lines not exceeding 80 characters, but my setup in Visual Studio Code is tailored to 120 characters, which I prefer. It also emerged that JSLint has a penchant for double quotes over single quotes, yet I've opted to stick with single quotes for my JavaScript. Furthermore, while JSLint shows a preference for traditional function declarations over arrow functions for complex operations, I judged my functions to be straightforward enough not to warrant this adjustment. I made corrections for several spacing warnings identified by JSLint and also enclosed a specific piece of code in parentheses following its recommendation. See bugs to read more on mobile device bug which was solived after running my code through JSLint.
 
 I conducted extensive cross-browser testing, meticulously reviewing the website in various browsers. During this process, I systematically clicked on every link on each page to verify their functionality and ensure a consistent, error-free user experience across different platforms.
 
@@ -191,6 +191,8 @@ I conducted extensive cross-browser testing, meticulously reviewing the website 
 5. DuckDuckGo
 
 I did notice a few styling issues on smaller screen resolutions which I corrected. Nothing which would have caused an issue, more just for visual appearance.
+
+Additionally, I conducted tests directly on my mobile device, during which I discovered that the Google Places API was not functioning on mobile platforms. Please refer to the bugs section for more information.
 
 I also ran each page through [Lighthouse via Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/accessibility/lighthouse) aiming to significantly elevate the overall quality of the website. This comprehensive analysis helped identify and address key aspects of performance, accessibility, best practices, and SEO to enhance the site's effectiveness and user experience. I ran this for both desktop and mobile.
 
@@ -224,7 +226,7 @@ I also ran each page through [Lighthouse via Microsoft Edge](https://learn.micro
 #### Testing Scenario: Incorrect City Name
 
 - **Question:** What occurs if a user inputs a misspelled city name or a location that isn’t recognised as a city without selecting from the Google Places API suggestions?
-- **Result:** Upon inputting an invalid city name or a location not recognised as a city by the Google API Places API, an alert is displayed with the message, "An error occurred while fetching the weather data. Please enter a valid city name. If the error persists, please contact us." Initially, this scenario inadvertently triggered the showActivityBtn() function, which was not the desired outcome. To address this, I restructured the implementation to call showActivityBtn() within the fetchWeather() function, but only under the condition of receiving valid input and data. This modification was part of a broader refactor which I asked Chat GPT for, and it included an additional .then clause in the fetch(url) promise. This clause verifies the format of the data received, ensuring that displayForecast() and showActivityBtn() functions are executed exclusively when valid data is obtained. Following these adjustments, the alert now properly signals data-fetching errors without prematurely invoking related UI changes, aligning the application's behaviour with expectations.
+- **Result:** Upon inputting an invalid city name or a location not recognised as a city by the Google Places API, an alert is displayed with the message, "An error occurred while fetching the weather data. Please enter a valid city name. If the error persists, please contact us." Initially, this scenario inadvertently triggered the showActivityBtn() function, which was not the desired outcome. To address this, I restructured the implementation to call showActivityBtn() within the fetchWeather() function, but only under the condition of receiving valid input and data. This modification was part of a broader refactor which I asked Chat GPT for, and it included an additional .then clause in the fetch(url) promise. This clause verifies the format of the data received, ensuring that displayForecast() and showActivityBtn() functions are executed exclusively when valid data is obtained. Following these adjustments, the alert now properly signals data-fetching errors without prematurely invoking related UI changes, aligning the application's behaviour with expectations.
 
 #### Testing Scenario: Using the "Start Over" Button
 
@@ -232,7 +234,9 @@ I also ran each page through [Lighthouse via Microsoft Edge](https://learn.micro
 - **Result:**
   - Without initiating a weather search but the user has added their location, clicking "Start Over" clears the input field, functioning as expected.
   - After a successful weather search, clicking "Start Over" clears the input and weather information, restoring the initial state.
-  - Following a successful weather search and activity search, "Start Over" resets the input field, removes weather data and Google Maps with activity markers, reverting back to the initial state. The "Start Over" button works flawlessly across scenarios.
+  - Following a successful weather search and activity search, "Start Over" resets the input field, removes weather data and Google Maps with activity markers, reverting back to the initial state.
+  
+The "Start Over" button works flawlessly across scenarios.
 
 ### Testing Documentation for ContactForm.js
 
@@ -289,8 +293,8 @@ If you would like to work on my project further, you can clone mine or create yo
 ## Credits
 
 - My mentor Spencer Barriball.
-  - Spencer has been great in reminding to make notes throughout my code and put my mind at ease that my project was a good ida.
+  - Spencer has been great in reminding to make notes throughout my code and put my mind at ease that my project was a good idea.
 
-- When searching for an idea for this MP2, I came across [Steve Griffith on YouTube](https://www.youtube.com/@SteveGriffith-Prof3ssorSt3v3). I must give alot of credit to him because without his vidow, I wouldn't understand what I know now. Some of the code I used was his, but I made sure I made it unique to my project and that I understood everything I was doing.
+- When searching for an idea for this MP2, I came across [Steve Griffith on YouTube](https://www.youtube.com/@SteveGriffith-Prof3ssorSt3v3). I must give alot of credit to him because without his video, I wouldn't understand what I know now. Some of the code I used was his, but I made sure I made it unique to my project and that I understood everything I was doing.
 
 - Lastly, I want to express my gratitude to Ben Smith, my lecturer, for his support and motivation throughout this project. I encountered a few personal issues and began to lose confidence in my coding abilities, which I genuinely love. Ben was extremely professional and provided guidance that helped steer me back on track. Additionally, I am thankful for the extension he granted.
